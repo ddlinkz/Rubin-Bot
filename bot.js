@@ -8,5 +8,13 @@ var Bot = new Twit({
 });
 
 Bot.get('statuses/user_timeline', { screen_name: 'RickRubin'}, function(err, data, response) {
-    console.log(data);
+    console.log(data[0]);
 })
+
+// TODO:
+
+// Local testing - heroku local worker (done)
+// - also added .env and .gitignore files for local testing
+// Access media (find out which files to keep)
+// Set up DB to download to
+// set up front end to previous tweets
