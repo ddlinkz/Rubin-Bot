@@ -1,0 +1,15 @@
+{
+  "name": "rubin-bot",
+  "version": "1.0.0",
+  "description": "Rick Rubin Twitter Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-twitterbot": "^0.2.2",
+    "twit": "^2.2.11"
+  }
+}
