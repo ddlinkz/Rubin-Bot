@@ -1,7 +1,9 @@
 var Twit = require('twit');
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
+const cloudinary = require('cloudinary').v2;
 
+// Twitter API keys
 var Bot = new Twit({
     consumer_key: process.env.BOT_CONSUMER_KEY,
     consumer_secret: process.env.BOT_CONSUMER_SECRET,
@@ -9,16 +11,61 @@ var Bot = new Twit({
     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 });
 
+// MongoDB user information
 var dbInfo = process.env.USERINFO;
 
+// Cloudinary Config
+cloudinary.config({
+    cloud_name: process.env.BOT_CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.BOT_CLOUDINARY_API_KEY,
+    api_secret: process.env.BOT_CLOUDINARY_API_SECRET
+});
+
+// Define URI and assign Client variable
 const uri = "mongodb+srv://"+dbInfo+"@cluster0-zd3dc.azure.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
 Bot.get('statuses/user_timeline', { screen_name: 'RickRubin'}, function(err, data, response) {
-    console.log(data[0]);
-})
+    var img_url = data[0].entities.media[0].media_url;
+    var cloud_url;
+    var cloud_secure_url;
+    var created_at = data[0].created_at;
+    var user_count = data[0].user.followers_count;
+    cloudinary.uploader.upload(img_url,
+        { folder: "images/" },
+        function(error, result){
+            console.log(result, error);
+            cloud_url = result.url;
+            cloud_secure_url = result.secure_url;
+            client.connect(err => {
+                const collection = client.db("rubin-bot").collection("tweets");
+                var tweet = {
+                    img: cloud_url,
+                    secure_img: cloud_secure_url,
+                    date: created_at,
+                    user_count: user_count
+                }
+                collection.insertOne(tweet, function(err, res) {
+                    if(err) throw err;
+                    console.log("1 document inserted");
+                })
+                client.close();
+            });
+        }
+    )
+});
 
-client.connect(err => {
+// TODO:
+// add only if the tweet doesn't already exist
+// add tweet in general
+// use cloudinary to store images, then use that link to store in mongodb
+
+// ask for tweet
+// upload image first/
+// with response, connect to mongodb
+// insert data with photos replaced with cloudinary urls
+
+/*client.connect(err => {
     const collection = client.db("rubin-bot").collection("tweets");
     collection.insertMany([
         {a : 1}, {a : 2}, {a : 3}
@@ -30,7 +77,7 @@ client.connect(err => {
       });
     // perform actions on the collection object
     client.close();
-});
+}); */
 
 // TODO:
 
@@ -41,5 +88,6 @@ client.connect(err => {
 // - id:
 // - entities:
 // - extended_entities
+// - user - followers_count
 // Set up DB to download to
 // set up front end to previous tweets

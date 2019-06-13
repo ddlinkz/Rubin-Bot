@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cloudinary": "^1.14.0",
     "mongodb": "^3.2.7",
     "node-twitterbot": "^0.2.2",
     "twit": "^2.2.11"
