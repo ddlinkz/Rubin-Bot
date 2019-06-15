@@ -11,9 +11,6 @@ var Bot = new Twit({
     access_token_secret: process.env.BOT_ACCESS_TOKEN_SECRET
 });
 
-// MongoDB user information
-var dbInfo = process.env.USERINFO;
-
 // Cloudinary Config
 cloudinary.config({
     cloud_name: process.env.BOT_CLOUDINARY_CLOUD_NAME,
@@ -21,9 +18,8 @@ cloudinary.config({
     api_secret: process.env.BOT_CLOUDINARY_API_SECRET
 });
 
-// Define URI and assign Client variable
-const uri = "mongodb+srv://"+dbInfo+"@cluster0-zd3dc.azure.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
+// Assign Client variable
+const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 Bot.get('statuses/user_timeline', { screen_name: 'RickRubin'}, function(err, data, response) {
     var img_url = data[0].entities.media[0].media_url;

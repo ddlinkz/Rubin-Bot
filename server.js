@@ -6,14 +6,9 @@ const MongoClient = require('mongodb').MongoClient;
 
 var dbInfo = process.env.USERINFO;
 
-// Define URI and assign Client variable
-const uri = "mongodb+srv://"+dbInfo+"@cluster0-zd3dc.azure.mongodb.net/test?retryWrites=true&w=majority";
-
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 app.set('view engine', 'ejs');
-
-var tweets = [];
 
 client.connect(err => {
     const cursor = client.db("rubin-bot").collection("tweets").find({});
