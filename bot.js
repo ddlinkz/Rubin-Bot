@@ -21,6 +21,8 @@ cloudinary.config({
 // Assign Client variable
 const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
 
+console.log(process.env);
+
 Bot.get('statuses/user_timeline', { screen_name: 'RickRubin'}, function(err, data, response) {
     var img_url = data[0].entities.media[0].media_url;
     var cloud_url;
