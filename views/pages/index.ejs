@@ -1,0 +1,14 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+        <h1> Rick Rubin Tweet Archive </h1>
+        <% for(var i=0; i<tweets.length; i++) {%>
+            <img src="<%= tweets[i].img %> " />
+        <% } %>
+    </body>
+</html>
