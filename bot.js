@@ -29,30 +29,33 @@ Bot.get('statuses/user_timeline', { screen_name: 'RickRubin'}, function(err, dat
     var user_count = data[0].user.followers_count;
     var tweet_id = data[0].id;
     client.connect(err => {
-        var Tweets = client.db("rubin-bot").collection("tweets").find({tweet_id: tweet_id}).toArray();
-        if(Tweets > 0){
-            cloudinary.uploader.upload(img_url,
-                { folder: "images/" },
-                function(error, result){
-                    console.log(result, error);
-                    cloud_url = result.url;
-                    cloud_secure_url = result.secure_url;
-                    var tweet = {
-                        tweet_id: tweet_id,
-                        img: cloud_url,
-                        secure_img: cloud_secure_url,
-                        date: created_at,
-                        user_count: user_count
+        var Tweets = client.db("rubin-bot").collection("tweets");
+        Tweets.find({tweet_id: tweet_id}).toArray(function(err, result){
+            // If the tweet_id is not found, then the tweet is new
+            if(result.length == 0){
+                cloudinary.uploader.upload(img_url,
+                    { folder: "images/" },
+                    function(error, result){
+                        console.log(result, error);
+                        cloud_url = result.url;
+                        cloud_secure_url = result.secure_url;
+                        var tweet = {
+                            tweet_id: tweet_id,
+                            img: cloud_url,
+                            secure_img: cloud_secure_url,
+                            date: created_at,
+                            user_count: user_count
+                        }
+                        Tweets.insertOne(tweet, function(err, res) {
+                            if(err) throw err;
+                            console.log("1 document inserted");
+                        })
                     }
-                    Tweets.insertOne(tweet, function(err, res) {
-                        if(err) throw err;
-                        console.log("1 document inserted");
-                    })
-                }
-            )
-        } else {
-            console.log("Tweet exists already!");
-        }
+                )    
+            } else {
+                console.log("Tweet exists already!");
+            }
+        });
         client.close();
     });
 });
