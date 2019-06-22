@@ -49,13 +49,14 @@ Bot.get('statuses/user_timeline', { screen_name: 'RickRubin'}, function(err, dat
                         Tweets.insertOne(tweet, function(err, res) {
                             if(err) throw err;
                             console.log("1 document inserted");
+                            client.close();
                         })
                     }
                 )    
             } else {
                 console.log("Tweet exists already!");
+                client.close();
             }
         });
-        client.close();
     });
 });
