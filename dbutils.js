@@ -83,7 +83,6 @@ class DbUtils {
 		console.log(count + ' documents modified');
 	}
 
-
 	async add_text_string() {
 		console.log("Connected successfully to server");
 

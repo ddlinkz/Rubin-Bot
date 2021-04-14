@@ -7,7 +7,9 @@
     "test": "npm run test",
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "textract": "node dbutils.js"
+    "textract": "node modifydb.js fillone",
+    "textract-many": "node modifydb.js fillmany",
+    "add-textfields": "node modifydb.js textfields"
   },
   "author": "",
   "license": "ISC",
