@@ -6,6 +6,15 @@ const { createWorker } = require('tesseract.js');
 const options = { keepAlive: 1, connectTimeoutMS: 30000, reconnectTries: 30, reconnectInterval: 5000 }
 const MongoClient = require('mongodb').MongoClient;
 
+const cloudinary = require('cloudinary').v2;
+
+// Cloudinary Config
+cloudinary.config({
+    cloud_name: process.env.BOT_CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.BOT_CLOUDINARY_API_KEY,
+    api_secret: process.env.BOT_CLOUDINARY_API_SECRET
+});
+
 // const worker = createWorker({
 // 	logger: m => console.log(m)
 // });
@@ -37,9 +46,6 @@ class DbUtils {
 			return;
 		}
 
-		await this.worker.load();
-		await this.worker.loadLanguage('eng');
-		await this.worker.initialize('eng');
 
 		const { data: { text } } = await this.worker.recognize(doc.img);
 
@@ -92,7 +98,6 @@ class DbUtils {
 		const filter = { text_string: {$exists: false}};
 		const update = { $set: {text_string: ""}}
 
-		const cursor = tweets.find(filter);
 		const count = await tweets.countDocuments(filter);
 
 		if (count == 0) {
@@ -103,6 +108,54 @@ class DbUtils {
 		const result = await tweets.updateMany(filter, update);
 
 		console.log(count + ' documents modified');
+	}
+
+	async add_tweet(tweet) {
+		console.log("Connected successfully to server");
+
+		const database = this.client.db('rubin-bot');
+		const tweets = database.collection('tweets');
+
+		const filter = { tweet_id: tweet.tweet_id};
+		const count = await tweets.countDocuments(filter);
+		console.log(tweet);
+
+		if (count == 1) {
+			console.log('Tweet exists already!');
+			return;
+		}
+
+		await this.worker.load();
+		await this.worker.loadLanguage('eng');
+		await this.worker.initialize('eng');
+
+		// Extract text
+		const { data: { text } } = await this.worker.recognize(tweet.img);
+
+		const regex = /\r?\n|\r/g;
+		const modified_text = text.replace(regex, ' ');
+		console.log(modified_text);
+
+		// Upload to Cloudinary
+        const result = await cloudinary.uploader.upload(tweet.img, { folder: "images/" });
+    	const cloud_url = result.url;
+        const cloud_secure_url = result.secure_url;
+
+        const insert_tweet = {
+            tweet_id: tweet.tweet_id,
+            img: cloud_url,
+            secure_img: cloud_secure_url,
+            date: tweet.date,
+            user_count: tweet.user_count,
+            text_string: modified_text
+        }
+
+        console.log(insert_tweet);
+
+        await tweets.insertOne(insert_tweet, function(err, res) {
+            if(err) throw err;
+            console.log("1 document inserted");
+        })
 	}
 }
 
