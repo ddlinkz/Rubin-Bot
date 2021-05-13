@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test",
-    "dev": "nodemon server.js",
+    "dev": "nodemon --watch . server/server.js -e html,js,ejs",
     "start": "node server.js",
     "textract": "node modifydb.js fillone",
     "textract-many": "node modifydb.js fillmany",
@@ -14,18 +14,36 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "cloudinary": "^1.14.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
     "express": "^4.17.1",
     "mongodb": "^3.2.7",
+    "mongoose": "^5.12.8",
     "node-twitterbot": "^0.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "tesseract.js": "^2.1.4",
-    "textract": "^2.5.0",
+    "textract": "^2.4.0",
     "twit": "^2.2.11"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.4",
+    "react-scripts": "^4.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -6,6 +6,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!-- React -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+        <!-- Load our React component. -->
+        <script src="like_button.js"></script>
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -13,7 +20,11 @@
     </head>
     <body>
         <h1 class="text-center"> Rick Rubin Tweet Archive </h1>
+
         <p class="text-center">Rick Rubin is a legend in the music industry.</p>
+
+        <div id="like_button_container"></div>
+
         <div class="row">
             <% for(var i=tweets.length-1; i>=0; i--) {%>
                 <div class="col-sm-4">
