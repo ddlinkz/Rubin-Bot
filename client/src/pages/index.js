@@ -1,3 +1,9 @@
-import TweetList from './TweetList';
+import FrontPage from './FrontPage';
+import TweetPage from './TweetPage';
+import SearchPage from './SearchPage';
 
-export { TweetList }
+export { 
+	FrontPage,
+	TweetPage,
+	SearchPage
+}

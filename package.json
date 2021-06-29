@@ -6,10 +6,11 @@
   "scripts": {
     "test": "npm run test",
     "dev": "nodemon --watch . server/server.js -e html,js,ejs",
-    "start": "node server.js",
+    "start": "node server/server.js",
     "textract": "node modifydb.js fillone",
     "textract-many": "node modifydb.js fillmany",
-    "add-textfields": "node modifydb.js textfields"
+    "add-textfields": "node modifydb.js textfields",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",

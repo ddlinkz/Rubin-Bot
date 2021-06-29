@@ -1,13 +1,15 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const api = axios.create({
     baseURL: 'http://localhost:8000/api',
-})
+});
 
-export const getAllTweets = () => api.get(`/tweets`)
+export const getAllTweets = () => api.get(`/tweets`);
+export const getTweetId = (tweet_id) => api.get(`/tweets/` + tweet_id);
 
 const apis = {
-    getAllTweets
-}
+    getAllTweets,
+    getTweetId
+};
 
-export default apis
+export default apis;
