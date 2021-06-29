@@ -31,4 +31,9 @@ app.get('/', (req, res) => {
 
 app.use('/api', tweetRouter);
 
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+});
+
 app.listen(port, () => console.log(`Server running on port ${port}`));
