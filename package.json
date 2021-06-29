@@ -31,6 +31,9 @@
     "textract": "^2.4.0",
     "twit": "^2.2.11"
   },
+  "engines": {
+    "node": "15.11.0"
+  },
   "devDependencies": {
     "nodemon": "^1.19.4",
     "react-scripts": "^4.0.3"
