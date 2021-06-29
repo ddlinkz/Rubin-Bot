@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const url = window.location.origin + "/api";
+
 const api = axios.create({
-    baseURL: "http://localhost:5000/api",
+    baseURL: url,
 });
 
 export const getAllTweets = () => api.get(`/tweets`);
