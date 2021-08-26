@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../api';
-import { TweetList, MainTweet, Loading } from '../components';
+import { TweetList, Showcase, Loading } from '../components';
 
 import styled, { keyframes } from 'styled-components';
 
@@ -18,6 +18,10 @@ const fadeIn = keyframes`
 const LoadInWrapper = styled.div`
 	animation-name: ${fadeIn};
 	animation-duration: 4s;
+`
+
+const SizeWrapper = styled.div`
+	height: 100%;
 `
 
 class FrontPage extends Component {
@@ -58,10 +62,7 @@ class FrontPage extends Component {
 					</div>
 				:
 					<LoadInWrapper>
-						<MainTweet tweet={randomTweet.img}
-								   text={randomTweet.text_string}
-								   alt={randomTweet.secure_img}
-								   tweet_id={randomTweet.tweet_id} />
+						<Showcase tweet={randomTweet} />
 						<Wrapper> More Tweets </Wrapper>
 						<TweetList tweets={tweets.reverse()}/>
 					</LoadInWrapper>

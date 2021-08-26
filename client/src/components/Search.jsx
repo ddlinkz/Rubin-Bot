@@ -11,16 +11,10 @@ const HiddenText = styled.span`
     white-space: nowrap;
     width: 1px;
 `
-
 const Input = styled.input`
-	transition: width 0.4s ease-in-out;
-	width: 80%;
-	&:hover {
-		width: 100%;
-		border-bottom-style: 1px black solid;
-	}
-	font-size: 50px;
+	width: 300px;
 	font-style: italic;
+	font-size: inherit;
 	font-family: inherit;
 	border: 0;
 	opacity: 0.2;
@@ -29,11 +23,11 @@ const Input = styled.input`
 `
 
 const StyledInput = styled.div`
-	width: 400px;
+	width: 300px;
 `
 
 const Search = () => (
-	<StyledInput>
+	<>
 	    <form action="/search" method="get">
 	        <label htmlFor="header-search">
 	            <HiddenText> Search Tweets </HiddenText>
@@ -46,7 +40,7 @@ const Search = () => (
 	            autoComplete="off"
 	        />
 	    </form>
-    </StyledInput>
+    </>
 );
 
 export default Search;

@@ -1,0 +1,17 @@
+.tweet--default{
+	float: left;
+}
+
+.tweet--showcase{
+	float:  left;
+}
+
+.tweet--large{
+	height: 100%;
+	width: 50%;
+}
+
+.tweet--medium{
+	height: 30%;
+	width: 36%;
+}

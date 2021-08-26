@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const SearchHeader = styled.div`
 	text-align: center;
-	font-size: 26px;
+	font-size: 48px;
 `
 
 const SearchContainer = styled.div`
@@ -17,8 +17,10 @@ const SearchContainer = styled.div`
 
 const StyledLink = styled(Link)`
 	text-decoration: none;
+	font-size: 24px;
 	color: black;
 	font-style: italic;
+	padding: 5px;
 `
 
 const SearchPage = () => {
@@ -43,24 +45,26 @@ const SearchPage = () => {
 
     return (
 		<SearchContainer>
-			{filteredTweets.length === 0 ?
+			{filterTweets == 'null' || filterTweets.length === 0 ?
 				<SearchHeader>
 					<i> No Results for "{query}" </i>		
 				</SearchHeader>
 			:
-				<SearchHeader>
-					<i> Search results for "{query}" </i>
-				</SearchHeader>
+				<div>
+					<SearchHeader>
+						<i> Search results for "{query}" </i>
+					</SearchHeader>
+		            <ul>
+		                {filteredTweets && filteredTweets.map(tweet => (
+		                	<StyledLink to ={`/tweets/${tweet.tweet_id}`}>
+		                    	<li key={tweet.tweet_id}>
+		                    		{tweet.text_string} - Posted on {tweet.date}
+		                    	</li>
+		                    </StyledLink>
+		                ))}
+		            </ul>
+		        </div>
 			}
-            <ul>
-                {filteredTweets && filteredTweets.map(tweet => (
-                	<StyledLink to ={`/tweets/${tweet.tweet_id}`}>
-                    	<li key={tweet.tweet_id}>
-                    		{tweet.text_string}
-                    	</li>
-                    </StyledLink>
-                ))}
-            </ul>
 		</SearchContainer>
 	)
 }
