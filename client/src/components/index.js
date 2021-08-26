@@ -5,10 +5,6 @@ import HomeRoute from './HomeRoute';
 import Header from './Header';
 import Search from './Search';
 import Loading from './Loading';
-import About from './About';
-import NavMenu from './NavMenu';
-import NavButton from './NavButton';
-import NavToggle from './NavToggle';
 import TweetCard from './TweetCard';
 import Showcase from './Showcase';
 import SocialCard from './SocialCard';
@@ -23,10 +19,6 @@ export {
 	Header,
 	Search,
 	Loading,
-	About,
-	NavMenu,
-	NavButton,
-	NavToggle,
 	TweetCard,
 	Showcase,
 	SocialCard,
