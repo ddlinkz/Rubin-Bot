@@ -1,22 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import api from '../api';
 
 const CommentForm = ({tweet_id}) => {
 
-	const [comment, setComment] = useState();
+	const [comment, setComment] = useState({content: "", author: ""});
+
+	const handleChange = (event) => {
+		setComment({ ...comment, [event.target.name]: event.target.value });
+	};
 
 	const addComment = async (event) => {
-		setComment(event.target.value);
+		event.preventDefault();
+		comment.tweet_id = tweet_id;
+		console.log("Comment saved", comment);
+		await api.postComment(comment);
 	}
 
 	return (
-		<form>
+		<form onSubmit={addComment} >
 			<label>
 				Add comment here: 
-				<input onChange={addComment} type="text" />
+				<input type="text" name="content" onChange={handleChange} />
 				And your name:
-				<input onChange={addComment} type="text" />
+				<input type="text" name="author" onChange={handleChange} />
 			</label>
 			<input type="submit" value="Submit" />
 		</form>

@@ -62,7 +62,8 @@ class FrontPage extends Component {
 					</div>
 				:
 					<LoadInWrapper>
-						<Showcase tweet={randomTweet} />
+						<Showcase tweet={randomTweet}
+								  tweet_id={randomTweet.tweet_id} />
 						<Wrapper> More Tweets </Wrapper>
 						<TweetList tweets={tweets.reverse()}/>
 					</LoadInWrapper>
