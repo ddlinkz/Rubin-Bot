@@ -28,7 +28,6 @@ const getTweetId = async (req, res) => {
     }).catch(err => console.log(err))
 };
 
-
 module.exports = {
 	getTweets,
     getTweetId
