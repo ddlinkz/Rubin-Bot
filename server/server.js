@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Serve static files from React
-//app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
