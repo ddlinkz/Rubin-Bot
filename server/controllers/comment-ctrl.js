@@ -28,7 +28,23 @@ const getCommentId = async (req, res) => {
     }).catch(err => console.log(err))
 };
 
+const postComment = async (req, res) => {
+	const comment = new Comment({
+		content: req.body.content,
+		author: req.body.author,
+		tweet_id: req.body.tweet_id
+	})
+	console.log(comment);
+	comment.save(function (err, comment) {
+		if (err) {
+			return res.status(400).json({ success: false, error: err})
+		}
+		res.status(200).json(comment)
+	})
+};
+
 module.exports = {
 	getComments,
-	getCommentId
+	getCommentId,
+	postComment
 };

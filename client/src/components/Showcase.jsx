@@ -8,17 +8,15 @@ const ShowcaseWrapper = styled.div`
 	border: 1px solid black;
 `;
 
-const Showcase = (tweet) => {
+const Showcase = ({tweet, comments, tweet_id}) => {
 	
-	console.log('Hello');
-	console.log(tweet);
-
 	return (
 		<ShowcaseWrapper>
-			<TweetCard tweet={tweet.tweet}
+			<TweetCard tweet={tweet}
 					   cardStyle='tweet--showcase'
 					   cardSize='tweet--large' />
-			<SocialCard />
+			<SocialCard comments={comments}
+						tweet_id={tweet_id} />
 		</ShowcaseWrapper>
 	)
 }

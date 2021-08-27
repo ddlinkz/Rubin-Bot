@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import api from '../api';
-import { MainTweet, TweetList } from '../components';
+import { MainTweet, TweetList, Showcase } from '../components';
 
 import styled from 'styled-components';
 
@@ -17,6 +17,7 @@ class TweetPage extends Component {
 		this.state = {
 			tweet: [],
 			tweets: [],
+			comments: [],
 			isLoading: false,
 		};
 	}
@@ -37,6 +38,12 @@ class TweetPage extends Component {
                 tweets: tweets.data.data,
         	})
         })
+
+        await api.getCommentId(this.props.match.params.tweet_id).then(comments => {
+        	this.setState({
+        		comments: comments.data.data
+        	})
+        })
     }
 
     componentDidUpdate = (prevProps) => {
@@ -52,17 +59,17 @@ class TweetPage extends Component {
     };
 
 	render() {
-		const { tweets, tweet } = this.state;
+		const { tweets, tweet, comments } = this.state;
+		const tweet_id = this.props.match.params.tweet_id;
         console.log('TCL: TweetList -> render -> tweets', tweet);
 
         const extractTweet = Object.assign({}, tweet[0]);
 
 		return (
 			<div>
-				<MainTweet tweet={extractTweet.img}
-						   text={extractTweet.text_string}
-						   alt={extractTweet.secure_img}
-						   tweet_id={extractTweet.tweet_id} />
+				<Showcase tweet={extractTweet}
+						  comments={comments}
+						  tweet_id={tweet_id} />
 				<Wrapper> More Tweets </Wrapper>
 				<TweetList tweets={tweets.reverse()}/>
 			</div>

@@ -20,11 +20,6 @@ const TweetCard = ({tweet, cardStyle, cardSize}) => {
 
 	const checkCardSize = SIZES.includes(cardSize) ? cardSize : SIZES[0];
 
-	console.log(cardSize);
-	console.log(cardStyle);
-	console.log(checkCardSize);
-	console.log(checkCardStyle);
-
 	return (
 		<Link to ={`/tweets/${tweet.tweet_id}`}>
 			<div 

@@ -10,4 +10,6 @@ router.get('/tweets/:tweet_id', TweetCtrl.getTweetId);
 router.get('/comments', CommentCtrl.getComments);
 router.get('/comments/:tweet_id', CommentCtrl.getCommentId);
 
+router.post('/comments/', CommentCtrl.postComment);
+
 module.exports = router;

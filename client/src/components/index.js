@@ -8,8 +8,10 @@ import Loading from './Loading';
 import TweetCard from './TweetCard';
 import Showcase from './Showcase';
 import SocialCard from './SocialCard';
-import Comments from './Comments';
+import CommentSection from './CommentSection';
 import ViewData from './ViewData';
+import CommentForm from './CommentForm';
+import Comment from './Comment';
 
 export { 
 	MainTweet,
@@ -22,6 +24,8 @@ export {
 	TweetCard,
 	Showcase,
 	SocialCard,
-	Comments,
-	ViewData
+	CommentSection,
+	ViewData,
+	CommentForm,
+	Comment
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Comments, ViewData } from '../components';
+import { CommentSection, ViewData } from '../components';
 
 import styled from 'styled-components';
 
@@ -16,11 +16,12 @@ const SocialWrapper = styled.div`
 
 // Here to float right for comments/viewcount
 
-const SocialCard = () => {
+const SocialCard = ({comments, tweet_id}) => {
 	
 	return (
 		<SocialWrapper>
-			<Comments />
+			<CommentSection comments={comments}
+							tweet_id={tweet_id} />
 			<ViewData>
 				View Count
 			</ViewData>

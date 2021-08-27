@@ -8,10 +8,15 @@ const api = axios.create({
 
 export const getAllTweets = () => api.get(`/tweets`);
 export const getTweetId = (tweet_id) => api.get(`/tweets/` + tweet_id);
+export const getCommentId = (tweet_id) => api.get(`/comments/` + tweet_id);
+
+export const postComment = (body) => api.post(`/comments/`, body);
 
 const apis = {
     getAllTweets,
-    getTweetId
+    getTweetId,
+    getCommentId,
+    postComment
 };
 
 export default apis;
