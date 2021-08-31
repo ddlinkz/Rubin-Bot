@@ -8,7 +8,7 @@ import Loading from './Loading';
 import TweetCard from './TweetCard';
 import Showcase from './Showcase';
 import SocialCard from './SocialCard';
-import CommentSection from './CommentSection';
+import CommentContainer from './CommentContainer';
 import ViewData from './ViewData';
 import CommentForm from './CommentForm';
 import Comment from './Comment';
@@ -24,7 +24,7 @@ export {
 	TweetCard,
 	Showcase,
 	SocialCard,
-	CommentSection,
+	CommentContainer,
 	ViewData,
 	CommentForm,
 	Comment

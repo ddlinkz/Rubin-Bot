@@ -1,5 +1,5 @@
 import React from 'react';
-import { CommentSection, ViewData } from '../components';
+import { CommentContainer, ViewData } from '../components';
 
 import styled from 'styled-components';
 
@@ -20,7 +20,7 @@ const SocialCard = ({comments, tweet_id}) => {
 	
 	return (
 		<SocialWrapper>
-			<CommentSection comments={comments}
+			<CommentContainer comments={comments}
 							tweet_id={tweet_id} />
 			<ViewData>
 				View Count

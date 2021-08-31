@@ -6,10 +6,12 @@ const api = axios.create({
     baseURL: url,
 });
 
+// GET requests
 export const getAllTweets = () => api.get(`/tweets`);
 export const getTweetId = (tweet_id) => api.get(`/tweets/` + tweet_id);
 export const getCommentId = (tweet_id) => api.get(`/comments/` + tweet_id);
 
+// POST requests
 export const postComment = (body) => api.post(`/comments/`, body);
 
 const apis = {
