@@ -13,7 +13,7 @@ const FormWrapper = styled.div`
 `
 
 const TextInput = styled.input`
-	width: 90%;
+	width: 70%;
 	height: 100px;
 `
 
@@ -24,7 +24,7 @@ const SubmitButton = styled.input`
 	right: 22px;
 `
 
-const CommentForm = ({handleChange, addComment}) => {
+const CommentForm = ({content, author, handleChange, addComment}) => {
 
 	return (
 		<FormWrapper>
@@ -32,11 +32,11 @@ const CommentForm = ({handleChange, addComment}) => {
 				<label>
 					Add comment here: 
 					<br />
-					<TextInput type="text" name="content" onChange={handleChange} />
+					<TextInput value={content} type="text" name="content" onChange={handleChange} />
 					<br />
 					And your name:
 					<br />
-					<input type="text" name="author" onChange={handleChange} />
+					<input value={author} type="text" name="author" onChange={handleChange} />
 				</label>
 				<br />
 				<SubmitButton type="submit" value="Submit" />

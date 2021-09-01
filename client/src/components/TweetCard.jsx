@@ -5,9 +5,17 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const imgStyle = {
-	maxWidth: "100%",
-	maxHeight: "100%"
+	height: "100%",
+	width: "200%"
 }
+
+const TweetContainer = styled.div`
+	width: 49%;
+	height: 100%;
+	float: left;
+	display: flex;
+	justify-content: center;
+`
 
 const STYLES = ['tweet--default', 'tweet--showcase'];
 
@@ -21,13 +29,15 @@ const TweetCard = ({tweet, cardStyle, cardSize}) => {
 	const checkCardSize = SIZES.includes(cardSize) ? cardSize : SIZES[0];
 
 	return (
-		<Link to ={`/tweets/${tweet.tweet_id}`}>
-			<div 
-				className={`${checkCardStyle} ${checkCardSize}`}
-			>
-				<img style={imgStyle} src={tweet.img} alt={tweet.secure_img}/>
-			</div>
-		</Link>
+		<TweetContainer>
+			<Link to ={`/tweets/${tweet.tweet_id}`}>
+				<div 
+					className={`${checkCardStyle} ${checkCardSize}`}
+				>
+					<img style={imgStyle} src={tweet.img} alt={tweet.secure_img}/>
+				</div>
+			</Link>
+		</TweetContainer>
 	);
 };
 

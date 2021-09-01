@@ -17,6 +17,11 @@ const CommentsWrapper = styled.div`
 	position: relative;
 `
 
+const CommentsScroll = styled.div`
+	overflow: auto;
+	height: 330px;
+`
+
 const CommentContainer = ({comments, tweet_id}) => {
 
 	const [comment, setComment] = useState({content: "", author: ""});
@@ -35,19 +40,24 @@ const CommentContainer = ({comments, tweet_id}) => {
 		comment.tweet_id = tweet_id;
 		console.log("Comment saved", comment);
 		await api.postComment(comment);
-		setLocalComments(oldComments => [...oldComments, comment])
+		setLocalComments(oldComments => [...oldComments, comment]);
+		setComment({content: "", author: ""});
 	}
 
 	return (
 		<CommentsWrapper>
-			{ localComments == undefined || localComments.length == 0
-				? <div> Comments go here! </div>
-				: <> { localComments.map((comment, i) => {
-					return <Comment comment={comment} key={i} />
-					})}
-				</>
-			}
-			<CommentForm handleChange={handleChange}
+			<CommentsScroll>
+				{ localComments == undefined || localComments.length == 0
+					? <div> Add a comment below! </div>
+					: <> { localComments.map((comment, i) => {
+						return <Comment comment={comment} key={i} />
+						})}
+					</>
+				}
+			</CommentsScroll>
+			<CommentForm content={comment.content}
+						 author={comment.author}
+						 handleChange={handleChange}
 						 addComment={addComment} />
 		</CommentsWrapper>
 	)

@@ -3,9 +3,8 @@ import { TweetCard, SocialCard } from '../components'
 import styled from 'styled-components'
 
 const ShowcaseWrapper = styled.div`
-	padding: 20px;
+	padding: 10px;
 	height: 60vh;
-	border: 1px solid black;
 `;
 
 const Showcase = ({tweet, comments, tweet_id}) => {
