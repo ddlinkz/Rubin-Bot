@@ -10,8 +10,11 @@ const CommentsWrapper = styled.div`
 	padding: 20px;
 	width: 100%;
 	height: 80%;
-	text-align: center;
+	text-align: left;
+	font-family: inherit;
+	font-style: italic;
 	border: 1px black solid;
+	position: relative;
 `
 
 const CommentContainer = ({comments, tweet_id}) => {

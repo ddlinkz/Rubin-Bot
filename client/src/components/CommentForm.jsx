@@ -1,17 +1,47 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
+const FormWrapper = styled.div`
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 20px;
+	font-family: inherit;
+	font-style: italic;
+	font-weight: bolder;
+	width: 100%;
+`
+
+const TextInput = styled.input`
+	width: 90%;
+	height: 100px;
+`
+
+const SubmitButton = styled.input`
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	right: 22px;
+`
+
 const CommentForm = ({handleChange, addComment}) => {
 
 	return (
-		<form onSubmit={addComment} >
-			<label>
-				Add comment here: 
-				<input type="text" name="content" onChange={handleChange} />
-				And your name:
-				<input type="text" name="author" onChange={handleChange} />
-			</label>
-			<input type="submit" value="Submit" />
-		</form>
+		<FormWrapper>
+			<form onSubmit={addComment} >
+				<label>
+					Add comment here: 
+					<br />
+					<TextInput type="text" name="content" onChange={handleChange} />
+					<br />
+					And your name:
+					<br />
+					<input type="text" name="author" onChange={handleChange} />
+				</label>
+				<br />
+				<SubmitButton type="submit" value="Submit" />
+			</form>
+		</FormWrapper>
 	)
 }
 
