@@ -3,7 +3,7 @@ import { TweetCard, SocialCard } from '../components'
 import styled from 'styled-components'
 
 const ShowcaseWrapper = styled.div`
-	padding: 10px;
+	padding: 20px;
 	height: 60vh;
 `;
 

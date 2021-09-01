@@ -29,15 +29,13 @@ const CommentForm = ({content, author, handleChange, addComment}) => {
 	return (
 		<FormWrapper>
 			<form onSubmit={addComment} >
-				<label>
-					Add comment here: 
+				<label> Add comment here: </label>
 					<br />
 					<TextInput value={content} type="text" name="content" onChange={handleChange} />
 					<br />
-					And your name:
+				<label> And your name: </label>
 					<br />
 					<input value={author} type="text" name="author" onChange={handleChange} />
-				</label>
 				<br />
 				<SubmitButton type="submit" value="Submit" />
 			</form>
