@@ -61,7 +61,6 @@ class TweetPage extends Component {
 	render() {
 		const { tweets, tweet, comments } = this.state;
 		const tweet_id = this.props.match.params.tweet_id;
-        console.log('TCL: TweetList -> render -> tweets', tweet);
 
         const extractTweet = Object.assign({}, tweet[0]);
 

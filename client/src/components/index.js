@@ -12,6 +12,7 @@ import CommentContainer from './CommentContainer';
 import ViewData from './ViewData';
 import CommentForm from './CommentForm';
 import Comment from './Comment';
+import Footer from './Footer';
 
 export { 
 	MainTweet,
@@ -27,5 +28,6 @@ export {
 	CommentContainer,
 	ViewData,
 	CommentForm,
-	Comment
+	Comment,
+	Footer
 };

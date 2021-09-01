@@ -16,15 +16,15 @@ class TweetList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tweets: this.props.tweets,
             size: 6
         };
     }
 
     render() {
+
         return (
             <GridContainer>
-                {this.state.tweets.slice(0, this.state.size).map(tweet => 
+                {this.props.tweets.slice(0, this.state.size).map(tweet => 
                     <TweetDiv tweet={tweet.img}
                                text={tweet.text_string}
                                alt={tweet.secure_img}
