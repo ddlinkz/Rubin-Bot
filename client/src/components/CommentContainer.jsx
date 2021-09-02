@@ -40,7 +40,7 @@ const CommentContainer = ({comments, tweet_id}) => {
 		comment.tweet_id = tweet_id;
 		console.log("Comment saved", comment);
 		await api.postComment(comment);
-		setLocalComments(oldComments => [...oldComments, comment]);
+		setLocalComments([...localComments, comment]);
 		setComment({content: "", author: ""});
 	}
 

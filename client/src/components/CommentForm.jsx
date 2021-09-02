@@ -12,9 +12,10 @@ const FormWrapper = styled.div`
 	width: 100%;
 `
 
-const TextInput = styled.input`
+const TextInput = styled.textarea`
 	width: 70%;
 	height: 100px;
+	font-family: inherit;
 `
 
 const SubmitButton = styled.input`
