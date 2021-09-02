@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { HomeRoute, Search, NavToggle } from '../components';
+import { HomeRoute, Search } from '../components';
 import { device } from '../style';
 
 const NavWrapper = styled.div`

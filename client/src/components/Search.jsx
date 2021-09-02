@@ -22,10 +22,6 @@ const Input = styled.input`
 	will-change: transform, box-shadow, z-index;
 `
 
-const StyledInput = styled.div`
-	width: 300px;
-`
-
 const Search = () => (
 	<>
 	    <form action="/search" method="get">

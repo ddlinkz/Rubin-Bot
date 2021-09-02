@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import api from '../api';
-import { MainTweet, TweetList, Showcase } from '../components';
+import { TweetList, Showcase } from '../components';
 
 import styled from 'styled-components';
 

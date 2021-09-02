@@ -45,7 +45,7 @@ const SearchPage = () => {
 
     return (
 		<SearchContainer>
-			{filterTweets == 'null' || filterTweets.length === 0 ?
+			{filterTweets === null || filterTweets.length === 0 ?
 				<SearchHeader>
 					<i> No Results for "{query}" </i>		
 				</SearchHeader>

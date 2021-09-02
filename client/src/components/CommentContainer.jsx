@@ -47,7 +47,7 @@ const CommentContainer = ({comments, tweet_id}) => {
 	return (
 		<CommentsWrapper>
 			<CommentsScroll>
-				{ localComments == undefined || localComments.length == 0
+				{ localComments === undefined || localComments.length === 0
 					? <div> Add a comment below! </div>
 					: <> { localComments.map((comment, i) => {
 						return <Comment comment={comment} key={i} />

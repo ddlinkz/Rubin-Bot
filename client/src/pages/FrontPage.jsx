@@ -4,6 +4,10 @@ import { TweetList, Showcase, Loading } from '../components';
 
 import styled, { keyframes } from 'styled-components';
 
+const PageContainer = styled.div`
+	height: 90%;
+`
+
 const Wrapper = styled.div`
 	font-family: inherit;
 	font-style: italic;
@@ -18,10 +22,6 @@ const fadeIn = keyframes`
 const LoadInWrapper = styled.div`
 	animation-name: ${fadeIn};
 	animation-duration: 4s;
-`
-
-const SizeWrapper = styled.div`
-	height: 100%;
 `
 
 class FrontPage extends Component {
@@ -55,7 +55,7 @@ class FrontPage extends Component {
         console.log('TCL: TweetList -> render -> tweets', tweets);
 
 		return (
-			<div>
+			<PageContainer>
 				{isLoading ?
 					<div>
 						<Loading type={'spin'} color={'black'} height={'50%'} width={'20%'}/>
@@ -68,7 +68,7 @@ class FrontPage extends Component {
 						<TweetList tweets={tweets.reverse()}/>
 					</LoadInWrapper>
 				}
-			</div>
+			</PageContainer>
 		)
 
 	}
