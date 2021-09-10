@@ -5,7 +5,8 @@ import styled from 'styled-components'
 const FooterContainer = styled.div`
 	background-color: lightgrey;
 	font-family: inherit;
-	height: 10vh;
+	bottom: 0;
+	height: 7rem;
 	width: 100%;
 	margin-bottom: 0;
 	position: absolute;

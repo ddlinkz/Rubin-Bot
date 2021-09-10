@@ -12,14 +12,13 @@ const HiddenText = styled.span`
     width: 1px;
 `
 const Input = styled.input`
-	width: 300px;
+	width: 225px;
 	font-style: italic;
 	font-size: inherit;
-	font-family: inherit;
 	border: 0;
+	font-family: inherit;
 	opacity: 0.2;
 	outline-width: 0;
-	will-change: transform, box-shadow, z-index;
 `
 
 const Search = () => (

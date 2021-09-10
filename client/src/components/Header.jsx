@@ -15,6 +15,7 @@ const NavWrapper = styled.div`
 	position: sticky;
 	top: 0;
 	background-color: white;
+	z-index: 1;
 
 	@media ${device.laptop} {
 		font-size: 34px;
