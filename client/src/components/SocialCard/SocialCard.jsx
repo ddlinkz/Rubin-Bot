@@ -1,5 +1,5 @@
 import React from 'react';
-import { CommentContainer, ViewData } from '../components';
+import { CommentContainer, ViewData } from '../../components';
 
 import styled from 'styled-components';
 

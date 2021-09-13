@@ -1,18 +1,21 @@
 import MainTweet from './MainTweet';
 import TweetList from './TweetList';
 import TweetDiv from './TweetDiv';
-import HomeRoute from './HomeRoute';
-import Header from './Header';
-import Search from './Search';
+import HomeRoute from './Header/HomeRoute';
+import Header from './Header/Header';
+import Search from './Header/Search';
 import Loading from './Loading';
 import TweetCard from './TweetCard';
 import Showcase from './Showcase';
-import SocialCard from './SocialCard';
-import CommentContainer from './CommentContainer';
+import SocialCard from './SocialCard/SocialCard';
+import CommentContainer from './SocialCard/Comments/CommentContainer';
 import ViewData from './ViewData';
-import CommentForm from './CommentForm';
-import Comment from './Comment';
+import CommentForm from './SocialCard/Comments/CommentForm';
+import Comment from './SocialCard/Comments/Comment';
 import Footer from './Footer';
+import AboutRoute from './Header/AboutRoute';
+import BurgerMenu from './Header/BurgerMenu';
+import BurgerIcon from './Header/BurgerIcon';
 
 export { 
 	MainTweet,
@@ -29,5 +32,8 @@ export {
 	ViewData,
 	CommentForm,
 	Comment,
-	Footer
+	Footer,
+	AboutRoute,
+	BurgerMenu,
+	BurgerIcon
 };

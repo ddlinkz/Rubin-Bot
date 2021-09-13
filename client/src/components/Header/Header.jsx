@@ -1,33 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import styled from 'styled-components';
 
-import { HomeRoute, Search } from '../components';
-import { device } from '../style';
+import { BurgerMenu, HomeRoute, AboutRoute, Search } from '../../components';
+import { device, size } from '../../style';
 
 const NavWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
-	height: 8%;
+	height: 5%;
 	font-family: 'Cardo', serif;
-	font-size: 30px;
-	padding: 2%;
+	font-size: 50px;
+	padding: 1%;
 	position: sticky;
 	top: 0;
 	background-color: white;
 	z-index: 1;
+	border-bottom: 1px solid grey;
 
-	@media ${device.laptop} {
-		font-size: 34px;
+`
+const NavContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	@media (max-width: ${size.tablet}) {
+		display: none;
 	}
-
 `
 
 const Header = () => {
+	const [open, setOpen] = useState(false);
+
+	const toggleBurger = () => {
+		setOpen(!open);
+	}
+
 	return (
 		<NavWrapper>
 			<HomeRoute />
-			<Search />
+			<NavContainer>
+				<AboutRoute />
+				<Search />
+			</NavContainer>
+			<BurgerMenu toggleBurger={toggleBurger} open={open}/>
 		</NavWrapper>
 	)
 }

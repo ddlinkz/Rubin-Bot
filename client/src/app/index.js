@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { FrontPage, TweetPage, SearchPage } from '../pages';
+import { FrontPage, TweetPage, SearchPage, AboutPage } from '../pages';
 import { Header, Footer } from '../components';
 
 import styled from 'styled-components';
@@ -20,6 +20,7 @@ function App() {
         <Route path="/" exact component={FrontPage} />
         <Route path="/tweets/:tweet_id" component={TweetPage} />
         <Route path="/search" component={SearchPage} />
+        <Route path="/about" component={AboutPage} />
         <Footer />
       </Router>
     </AppContainer>

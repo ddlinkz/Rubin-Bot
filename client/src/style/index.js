@@ -20,5 +20,6 @@ const device = {
 };
 
 export {
+  size,
 	device
 };

@@ -5,6 +5,10 @@ import styled from 'styled-components';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
+const HomeContainer = styled.div`
+	flex-grow: 2;
+`
+
 const NavLink = styled(Link)`
 	text-decoration: none;
 
@@ -15,11 +19,11 @@ const NavLink = styled(Link)`
 `;
 
 const HomeRoute = () => (
-	<div>
+	<HomeContainer>
 		<NavLink to="/">
 			<i> Rubin Tweets </i>
 		</NavLink>
-	</div>
+	</HomeContainer>
 )
 
 export default HomeRoute;
