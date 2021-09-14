@@ -1,10 +1,11 @@
 import React from 'react';
 import { CommentContainer, ViewData } from '../../components';
 
+import { size } from '../../style';
+
 import styled from 'styled-components';
 
 const SocialWrapper = styled.div`
-	float: right;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
@@ -12,6 +13,11 @@ const SocialWrapper = styled.div`
 	height: 100%;
 	border: 1px black solid;
 	text-align: center;
+
+	@media (max-width: ${size.tablet}) {
+		width: 100%;
+		height: 800px;
+	}
 `
 
 // Here to float right for comments/viewcount

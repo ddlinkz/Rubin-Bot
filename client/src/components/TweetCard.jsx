@@ -2,6 +2,8 @@ import React from 'react';
 import '../style/TweetCard.css'
 import { Link } from 'react-router-dom';
 
+import { size } from '../style';
+
 import styled from 'styled-components'
 
 const imgStyle = {
@@ -15,6 +17,11 @@ const TweetContainer = styled.div`
 	float: left;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	
+	@media (max-width: ${size.tablet}) {
+		width: 100%;
+	}
 `
 
 const STYLES = ['tweet--default', 'tweet--showcase'];

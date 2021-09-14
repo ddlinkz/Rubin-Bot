@@ -2,10 +2,16 @@ import React from 'react'
 import { TweetCard, SocialCard } from '../components'
 import styled from 'styled-components'
 
+import { size } from '../style'
+
 const ShowcaseWrapper = styled.div`
 	padding: 20px;
-	height: 60vh;
-`;
+	height: 80vh;
+
+	@media (max-width: ${size.tablet}) {
+		height: 100%;
+	}
+`
 
 const Showcase = ({tweet, comments, tweet_id}) => {
 	
