@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-
-import { About } from '../components';
+import React from 'react';
 
 import styled from 'styled-components';
 

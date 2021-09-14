@@ -12,20 +12,28 @@ const Container = styled.div`
 	}
 `
 const SideNavMenu = styled.div`
-	z-index: 10px;
-	position: fixed;
+	position: absolute;
+	z-index: 3;
+	height: 100vh;
+	width: 100%;
+	padding-top: 50px;
+
+	${({ open }) => open && `
+		background: blue;
+		left: 0;
+	`}
 `
 
 const BurgerMenu = ({toggleBurger, open}) => {
 	
 	return (
-		<Container onClick={toggleBurger} >
-			<BurgerIcon />
+		<Container>
+			<BurgerIcon toggleBurger={toggleBurger}/>
 			{ open ? 
-				<>
+				<SideNavMenu open={open}>
 					<AboutRoute />
 					<Search />
-				</> :
+				</SideNavMenu> :
 			 <> </>}
 		</Container>
 	)

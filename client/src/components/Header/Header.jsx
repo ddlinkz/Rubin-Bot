@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 import { BurgerMenu, HomeRoute, AboutRoute, Search } from '../../components';
-import { device, size } from '../../style';
+import { size } from '../../style';
 
 const NavWrapper = styled.div`
 	display: flex;

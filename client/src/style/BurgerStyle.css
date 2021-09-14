@@ -1,6 +1,9 @@
 .container {
-    display: inline-block;
     cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 5 !important;
 }
 
 .bar1, .bar2, .bar3 {
