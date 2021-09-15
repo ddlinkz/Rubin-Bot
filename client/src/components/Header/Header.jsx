@@ -18,6 +18,10 @@ const NavWrapper = styled.div`
 	z-index: 1;
 	border-bottom: 1px solid grey;
 
+	@media (max-width: ${size.mobileL}) {
+		font-size: 30px;
+	}
+
 `
 const NavContainer = styled.div`
 	flex-grow: 0.2;

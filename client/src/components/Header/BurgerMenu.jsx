@@ -22,8 +22,12 @@ const SideNavMenu = styled.div`
 	
 	${({ open }) => open && `
 		background: blue;
-		right: 0;
+		left: 0;
 	`}
+
+	@media (max-width: 300px) {
+		width: 100%;
+	}
 `
 
 const BurgerMenu = ({toggleBurger, open}) => {

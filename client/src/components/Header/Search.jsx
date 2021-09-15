@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { size } from '../../style';
+
 const HiddenText = styled.span`
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
@@ -10,10 +12,8 @@ const HiddenText = styled.span`
     position: absolute;
     white-space: nowrap;
     width: 1px;
-    border: 1px solid black;
 `
 const Input = styled.input`
-	border: 1px solid black;
 	margin-right: 10px;
 	width: 320px;
 	font-style: italic;
@@ -21,18 +21,24 @@ const Input = styled.input`
 	font-family: inherit;
 	opacity: 0.2;
 	outline-width: 0;
+
+	@media (max-width: ${size.laptop}) {
+		margin: 0;
+		width: 97%;
+		text-align: center;
+	}
 `
 
 const Search = () => (
 	<>
 	    <form action="/search" method="get">
 	        <label htmlFor="header-search">
-	            <HiddenText> Search Tweets </HiddenText>
+	            <HiddenText> Search Tweets</HiddenText>
 	        </label>
 	        <Input
 	            type="text"
 	            id="header-search"
-	            placeholder="Search Tweets"
+	            placeholder="Search"
 	            name="s"
 	            autoComplete="off"
 	        />

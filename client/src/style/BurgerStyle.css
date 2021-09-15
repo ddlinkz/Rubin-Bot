@@ -6,6 +6,13 @@
     z-index: 5 !important;
 }
 
+@media (max-width: 425px) {
+    .burger {
+        top: 1px;
+        right: 3px;
+    }
+}
+
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;

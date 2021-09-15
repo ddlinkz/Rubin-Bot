@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { TweetDiv } from '../components';
+import { TweetCard } from '../components';
 
 import styled from 'styled-components';
 
@@ -39,10 +39,10 @@ class TweetList extends Component {
         return (
             <GridContainer>
                 {this.props.tweets.slice(0, this.state.size).map(tweet => 
-                    <TweetDiv tweet={tweet.img}
-                               text={tweet.text_string}
-                               alt={tweet.secure_img}
-                               tweet_id={tweet.tweet_id} />
+                    <TweetCard tweet={tweet}
+                               cardStyle='tweet--default'
+                               cardSize='tweet--medium'
+                               key={tweet.tweet_id} />
                 )}
                 <Button onClick={() => this.setState({size: this.state.size + 9})} >
                     Load more

@@ -6,9 +6,15 @@ import { useLocation, Link, Router } from 'react-router-dom';
 
 import styled from 'styled-components';
 
+import { size } from '../style';
+
 const SearchHeader = styled.div`
 	text-align: center;
 	font-size: 48px;
+
+	@media (max-width: ${size.tablet} ){
+		font-size: 32px;
+	}
 `
 
 const SearchContainer = styled.div`

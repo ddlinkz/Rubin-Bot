@@ -18,7 +18,7 @@ const TweetContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
+
 	@media (max-width: ${size.tablet}) {
 		width: 100%;
 	}
