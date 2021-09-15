@@ -23,8 +23,8 @@ const NavContainer = styled.div`
 	flex-grow: 0.2;
 	display: flex;
 	justify-content: space-between;
-	
-	@media (max-width: ${size.tablet}) {
+
+	@media (max-width: ${size.laptop}) {
 		display: none;
 	}
 `

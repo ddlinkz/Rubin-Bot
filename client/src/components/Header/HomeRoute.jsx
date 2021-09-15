@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 const HomeContainer = styled.div`
-	flex-grow: 2;
+	flex-grow: 5;
 `
 
 const NavLink = styled(Link)`
