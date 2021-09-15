@@ -17,13 +17,15 @@ const SideNavMenu = styled.div`
 	top: 0;
 	height: 100vh;
 	width: 50%;
+	left: -100%;
 	padding-top: 50px;
 	text-align: center;
-	
-	${({ open }) => open && `
-		background: blue;
+	transition: all 0.4s;
+
+	&.showBar {
 		left: 0;
-	`}
+		background-color: blue;
+	}
 
 	@media (max-width: 300px) {
 		width: 100%;
@@ -35,12 +37,10 @@ const BurgerMenu = ({toggleBurger, open}) => {
 	return (
 		<Container>
 			<BurgerIcon toggleBurger={toggleBurger}/>
-			{ open ? 
-				<SideNavMenu open={open}>
-					<AboutRoute />
-					<Search />
-				</SideNavMenu> :
-			 <> </>}
+			<SideNavMenu className={open ? '' : 'showBar'}>
+				<AboutRoute />
+				<Search />
+			</SideNavMenu>
 		</Container>
 	)
 }
