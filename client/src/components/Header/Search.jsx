@@ -23,8 +23,8 @@ const Input = styled.input`
 	outline-width: 0;
 
 	@media (max-width: ${size.laptop}) {
+		width: 90%;
 		margin: 0;
-		width: 97%;
 		text-align: center;
 	}
 `
