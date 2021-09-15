@@ -14,7 +14,7 @@ const HiddenText = styled.span`
 `
 const Input = styled.input`
 	border: 1px solid black;
-	margin-right: 20px;
+	margin-right: 10px;
 	width: 320px;
 	font-style: italic;
 	font-size: inherit;

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { size } from '../../style';
 
 const Container = styled.div`
-	@media (min-width: ${size.laptop})
+	@media (min-width: ${size.laptop}){
 		display: none;
 	}
 `
@@ -17,13 +17,12 @@ const SideNavMenu = styled.div`
 	top: 0;
 	height: 100vh;
 	width: 50%;
-	right: 0;
 	padding-top: 50px;
 	text-align: center;
-
+	
 	${({ open }) => open && `
 		background: blue;
-		left: 0;
+		right: 0;
 	`}
 `
 
