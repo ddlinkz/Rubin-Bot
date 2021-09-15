@@ -10,12 +10,14 @@ const HiddenText = styled.span`
     position: absolute;
     white-space: nowrap;
     width: 1px;
+    border: 1px solid black;
 `
 const Input = styled.input`
-	width: 225px;
+	border: 1px solid black;
+	margin-right: 20px;
+	width: 320px;
 	font-style: italic;
 	font-size: inherit;
-	border: 0;
 	font-family: inherit;
 	opacity: 0.2;
 	outline-width: 0;
