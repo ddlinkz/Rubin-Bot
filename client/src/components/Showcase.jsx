@@ -13,13 +13,27 @@ const ShowcaseWrapper = styled.div`
 	}
 `
 
+const TweetContainer = styled.div`
+	width: 49%;
+	height: 100%;
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media (max-width: ${size.tablet}) {
+		width: 100%;
+	}
+`
+
 const Showcase = ({tweet, comments, tweet_id}) => {
 	
 	return (
 		<ShowcaseWrapper>
-			<TweetCard tweet={tweet}
-					   cardStyle='tweet--showcase'
-					   cardSize='tweet--large' />
+			<TweetContainer>
+				<TweetCard tweet={tweet}
+						   standard={false} />
+			</TweetContainer>
 			<SocialCard comments={comments}
 						tweet_id={tweet_id} />
 		</ShowcaseWrapper>

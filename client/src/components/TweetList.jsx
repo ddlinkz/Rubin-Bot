@@ -40,8 +40,7 @@ class TweetList extends Component {
             <GridContainer>
                 {this.props.tweets.slice(0, this.state.size).map(tweet => 
                     <TweetCard tweet={tweet}
-                               cardStyle='tweet--default'
-                               cardSize='tweet--medium'
+                               standard={true}
                                key={tweet.tweet_id} />
                 )}
                 <Button onClick={() => this.setState({size: this.state.size + 9})} >

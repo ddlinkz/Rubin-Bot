@@ -1,6 +1,4 @@
-import MainTweet from './MainTweet';
 import TweetList from './TweetList';
-import TweetDiv from './TweetDiv';
 import HomeRoute from './Header/HomeRoute';
 import Header from './Header/Header';
 import Search from './Header/Search';
@@ -18,9 +16,7 @@ import BurgerMenu from './Header/BurgerMenu';
 import BurgerIcon from './Header/BurgerIcon';
 
 export { 
-	MainTweet,
 	TweetList,
-	TweetDiv,
 	HomeRoute,
 	Header,
 	Search,

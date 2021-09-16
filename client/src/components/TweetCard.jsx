@@ -1,50 +1,28 @@
 import React from 'react';
-import '../style/TweetCard.css'
 import { Link } from 'react-router-dom';
-
-import { size } from '../style';
 
 import styled from 'styled-components'
 
 const imgStyle = {
-	height: "100%",
-	width: "200%"
+	height: "auto",
+	width: "100%"
 }
 
-const TweetContainer = styled.div`
-	width: 49%;
-	height: 100%;
-	float: left;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	@media (max-width: ${size.tablet}) {
-		width: 100%;
+const Wrapper = styled.div`
+	&.standard {
+		flex: 0 0 33.333333%;
+		margin: auto;
+		display: block;
 	}
 `
 
-const STYLES = ['tweet--default', 'tweet--showcase'];
-
-const SIZES = ['tweet--large', 'tweet--medium']
-
-const TweetCard = ({tweet, cardStyle, cardSize}) => {
-	const checkCardStyle = STYLES.includes(cardStyle)
-		? cardStyle
-		: STYLES[0];
-
-	const checkCardSize = SIZES.includes(cardSize) ? cardSize : SIZES[0];
-
+const TweetCard = ({tweet, standard}) => {
 	return (
-		<TweetContainer>
+		<Wrapper className={standard ? 'standard' : ''}>
 			<Link to ={`/tweets/${tweet.tweet_id}`}>
-				<div 
-					className={`${checkCardStyle} ${checkCardSize}`}
-				>
-					<img style={imgStyle} src={tweet.img} alt={tweet.secure_img}/>
-				</div>
+				<img style={imgStyle} src={tweet.img} alt={tweet.secure_img}/>
 			</Link>
-		</TweetContainer>
+		</Wrapper>
 	);
 };
 
