@@ -36,7 +36,8 @@ const BurgerMenu = ({toggleBurger, open}) => {
 	
 	return (
 		<Container>
-			<BurgerIcon toggleBurger={toggleBurger}/>
+			<BurgerIcon toggleBurger={toggleBurger}
+						open={open}/>
 			<SideNavMenu className={open ? 'showBar' : ''}>
 				<AboutRoute />
 				<Search />
