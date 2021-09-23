@@ -29,6 +29,10 @@ const Button = styled.button`
     margin: 25px auto;
     display: inline-block;
     font-size: 16px;
+
+    @media (max-width: ${size.mobileL}) {
+        font-size: 10px;
+    }
 `
 
 class TweetList extends Component {
