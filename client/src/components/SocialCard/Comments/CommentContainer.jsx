@@ -6,6 +6,8 @@ import api from '../../../api';
 
 import { CommentForm, Comment } from '../../../components';
 
+import { size } from '../../../style'
+
 const CommentsWrapper = styled.div`
 	padding: 20px;
 	width: 100%;
@@ -20,8 +22,12 @@ const CommentsWrapper = styled.div`
 const CommentsScroll = styled.div`
 	padding: 10px;
 	overflow: auto;
-	height: 330px;
+	height: 500px;
 	background-color: lightgrey;
+
+	@media (max-width: ${size.tablet}) {
+		height: 420px;
+	}
 `
 
 const CommentContainer = ({comments, tweet_id}) => {
@@ -46,16 +52,20 @@ const CommentContainer = ({comments, tweet_id}) => {
 		setComment({content: "", author: ""});
 	}
 
+	const displayComments = (comments) => {
+		if (comments === undefined || comments.length === 0){
+			return <div> Add a comment below! </div>
+		}
+
+		return comments.map((comment, i) => (
+			<Comment comment={comment} key={i} />
+		));
+	}
+
 	return (
 		<CommentsWrapper>
 			<CommentsScroll>
-				{ localComments === undefined || localComments.length === 0
-					? <div> Add a comment below! </div>
-					: <> { localComments.map((comment, i) => {
-						return <Comment comment={comment} key={i} />
-						})}
-					</>
-				}
+				{ displayComments(localComments) }
 			</CommentsScroll>
 			<CommentForm content={comment.content}
 						 author={comment.author}
