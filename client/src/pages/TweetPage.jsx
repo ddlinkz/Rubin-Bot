@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import api from '../api';
-import { TweetList, Showcase } from '../components';
+import { TweetList, Showcase, MoreTweets } from '../components';
 
 import styled from 'styled-components';
 
@@ -69,7 +69,7 @@ class TweetPage extends Component {
 				<Showcase tweet={extractTweet}
 						  comments={comments}
 						  tweet_id={tweet_id} />
-				<Wrapper> More Tweets </Wrapper>
+				<MoreTweets />
 				<TweetList tweets={tweets.reverse()}/>
 			</div>
 		)

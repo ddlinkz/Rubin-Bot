@@ -10,7 +10,7 @@ const NavWrapper = styled.div`
 	justify-content: space-between;
 	height: 5%;
 	font-family: 'Cardo', serif;
-	font-size: 50px;
+	font-size: 3em;
 	padding: 1%;
 	position: sticky;
 	top: 0;
@@ -19,7 +19,7 @@ const NavWrapper = styled.div`
 	border-bottom: 1px solid grey;
 
 	@media (max-width: ${size.mobileL}) {
-		font-size: 30px;
+		font-size: 2em;
 	}
 
 `

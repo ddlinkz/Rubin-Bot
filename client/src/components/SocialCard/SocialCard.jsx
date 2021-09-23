@@ -11,7 +11,6 @@ const SocialWrapper = styled.div`
 	justify-content: space-around;
 	width: 49%;
 	height: 100%;
-	border: 1px black solid;
 	text-align: center;
 
 	@media (max-width: ${size.tablet}) {

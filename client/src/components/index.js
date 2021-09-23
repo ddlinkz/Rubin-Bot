@@ -14,6 +14,7 @@ import Footer from './Footer';
 import AboutRoute from './Header/AboutRoute';
 import BurgerMenu from './Header/BurgerMenu';
 import BurgerIcon from './Header/BurgerIcon';
+import MoreTweets from './MoreTweets';
 
 export { 
 	TweetList,
@@ -31,5 +32,6 @@ export {
 	Footer,
 	AboutRoute,
 	BurgerMenu,
-	BurgerIcon
+	BurgerIcon,
+	MoreTweets
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../api';
-import { TweetList, Showcase, Loading } from '../components';
+import { TweetList, Showcase, Loading, MoreTweets } from '../components';
 
 import styled, { keyframes } from 'styled-components';
 
@@ -64,7 +64,7 @@ class FrontPage extends Component {
 					<LoadInWrapper>
 						<Showcase tweet={randomTweet}
 								  tweet_id={randomTweet.tweet_id} />
-						<Wrapper> More Tweets </Wrapper>
+						<MoreTweets />
 						<TweetList tweets={tweets.reverse()}/>
 					</LoadInWrapper>
 				}
