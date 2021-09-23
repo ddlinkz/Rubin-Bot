@@ -7,7 +7,7 @@ import TweetCard from './TweetCard';
 import Showcase from './Showcase';
 import SocialCard from './SocialCard/SocialCard';
 import CommentContainer from './SocialCard/Comments/CommentContainer';
-import ViewData from './ViewData';
+import ViewData from './SocialCard/ViewData';
 import CommentForm from './SocialCard/Comments/CommentForm';
 import Comment from './SocialCard/Comments/Comment';
 import Footer from './Footer';
