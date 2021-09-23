@@ -3,14 +3,6 @@ import React, { Component } from 'react';
 import api from '../api';
 import { TweetList, Showcase, MoreTweets } from '../components';
 
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-	font-family: inherit;
-	font-style: italic;
-	padding: 10px;
-	font-size: 32px;
-`
 class TweetPage extends Component {
 	constructor(props){
 		super(props);

@@ -36,6 +36,7 @@ const TextWrapper = styled.div`
 const Linkwrapper = styled.a`
 	text-decoration: none;
 	font-style: italic;
+	color: grey;
 
 	&:visited {
 		color: grey;

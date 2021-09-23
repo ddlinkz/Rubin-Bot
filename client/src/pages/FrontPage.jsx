@@ -8,12 +8,6 @@ const PageContainer = styled.div`
 	height: 90%;
 `
 
-const Wrapper = styled.div`
-	font-family: inherit;
-	font-style: italic;
-	padding: 10px;
-	font-size: 32px;
-`
 const fadeIn = keyframes`
 	from { opacity: 0; }
 	to { opacity: 1; }
