@@ -13,7 +13,7 @@ const GridContainer = styled.div`
     flex-wrap: wrap;
     padding-bottom: 1rem;
 
-    @media (min-width: ${size.mobileL}) {
+    @media (min-width: ${size.tablet}) {
         padding-left: 40px;
         padding-right: 40px;
     }

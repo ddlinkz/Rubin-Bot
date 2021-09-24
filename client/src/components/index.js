@@ -15,6 +15,7 @@ import AboutRoute from './Header/AboutRoute';
 import BurgerMenu from './Header/BurgerMenu';
 import BurgerIcon from './Header/BurgerIcon';
 import MoreTweets from './MoreTweets';
+import ApiWrapper from './ApiWrapper';
 
 export { 
 	TweetList,
@@ -33,5 +34,6 @@ export {
 	AboutRoute,
 	BurgerMenu,
 	BurgerIcon,
-	MoreTweets
+	MoreTweets,
+	ApiWrapper
 };

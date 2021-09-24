@@ -25,7 +25,7 @@ const Input = styled.input`
 	@media (max-width: ${size.laptop}) {
 		max-width: 90%;
 		min-width: 90%;
-		margin: 0;
+		margin: 0 auto;
 		text-align: center;
 	}
 `
