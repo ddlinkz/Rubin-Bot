@@ -6,12 +6,10 @@ import api from '../../../api';
 
 import { CommentForm, Comment } from '../../../components';
 
-import { size } from '../../../style'
-
 const CommentsWrapper = styled.div`
-	padding: 20px;
+	padding: 15px;
 	width: 100%;
-	height: 80%;
+	height: 85%;
 	text-align: left;
 	font-family: inherit;
 	font-style: italic;
@@ -20,14 +18,11 @@ const CommentsWrapper = styled.div`
 `
 
 const CommentsScroll = styled.div`
-	padding: 10px;
+	top: 0;
+	width: 100%;
 	overflow: auto;
-	height: 500px;
 	background-color: lightgrey;
-
-	@media (max-width: ${size.tablet}) {
-		height: 420px;
-	}
+	height: 70%;
 `
 
 const CommentContainer = ({comments, tweet_id}) => {

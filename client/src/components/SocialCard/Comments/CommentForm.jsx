@@ -2,14 +2,20 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { size } from '../../../style';
+
 const FormWrapper = styled.div`
-	position: absolute;
-	bottom: 0;
-	margin-bottom: 20px;
+	position: relative;
 	font-family: inherit;
 	font-style: italic;
 	font-weight: bolder;
 	width: 100%;
+	height: 25%;
+	margin-top: 20px;
+
+	@media (max-width: ${size.tablet}){
+		margin-top: 5px;
+	}
 `
 
 const TextInput = styled.textarea`
@@ -19,10 +25,18 @@ const TextInput = styled.textarea`
 `
 
 const SubmitButton = styled.input`
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
 	position: relative;
 	display: block;
 	margin: 0 auto;
-	right: 22px;
+	transition: transform .2s;
+
+	&:hover {
+		transform: scale(1.1);
+	}
 `
 
 const CommentForm = ({content, author, handleChange, addComment}) => {
