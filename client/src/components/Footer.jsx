@@ -16,7 +16,6 @@ const FooterContainer = styled.div`
 	font-size: 1em;
 	display: flex;
 	justify-content: space-around;
-	// border: 1px solid black;
 `
 const TextWrapper = styled.div`
 	float: ${props => props.right ? "right" : "left"};
@@ -24,9 +23,7 @@ const TextWrapper = styled.div`
 	overflow: 
 	margin: 0;
 	padding: 15px;
-
 	width: 50%;
-	// border: 1px solid black;
 
 	@media (max-width: ${size.mobileL}) {
 		font-size: 0.8em;
@@ -37,6 +34,7 @@ const Linkwrapper = styled.a`
 	text-decoration: none;
 	font-style: italic;
 	color: grey;
+	transition: color 1s ease;
 
 	&:visited {
 		color: grey;
