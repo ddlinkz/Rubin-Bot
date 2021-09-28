@@ -9,7 +9,7 @@
 
 @media (max-width: 425px) {
     .burger {
-        top: 1px;
+        top: 5px;
         right: 5px;
     }
 }

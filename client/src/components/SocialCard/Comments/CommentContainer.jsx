@@ -13,7 +13,6 @@ const CommentsWrapper = styled.div`
 	text-align: left;
 	font-family: inherit;
 	font-style: italic;
-	border: 1px black solid;
 	position: relative;
 `
 

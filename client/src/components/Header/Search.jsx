@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { size } from '../../style';
 
+import { BsSearch } from "react-icons/bs";
+
 const HiddenText = styled.span`
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
@@ -14,25 +16,40 @@ const HiddenText = styled.span`
     width: 1px;
 `
 const Input = styled.input`
-	margin-right: 10px;
-	width: 320px;
+	width: 240px;
 	font-style: italic;
 	font-size: inherit;
 	font-family: inherit;
 	opacity: 0.2;
 	outline-width: 0;
+	border: none;
+	padding-top: 6.75%;
 
 	@media (max-width: ${size.laptop}) {
-		max-width: 90%;
-		min-width: 90%;
 		margin: 0 auto;
 		text-align: center;
+		padding: 10px 5px 10px 30px;
+		max-width: 90%;
+		min-width: 90%;
+	}
+`
+
+const SearchIcon = styled(BsSearch)`
+	opacity: 20%;
+	margin-right: 10px;
+
+	@media (max-width: ${size.laptop}) {
+		position: absolute;
+		margin: 0 auto;
+		padding-top: 6%;
+		padding-left: 6%;
 	}
 `
 
 const Search = () => (
 	<>
 	    <form action="/search" method="get">
+	    	<SearchIcon />
 	        <label htmlFor="header-search">
 	            <HiddenText> Search Tweets</HiddenText>
 	        </label>

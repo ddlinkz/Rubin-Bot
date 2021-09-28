@@ -8,6 +8,7 @@ import styled from 'styled-components';
 const AboutContainer = styled.div`
 	flex-grow: 0.05;
 	font-style: italic;
+	padding-top: 5%;
 `
 
 const NavLink = styled(Link)`

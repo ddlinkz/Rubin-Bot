@@ -27,6 +27,8 @@ const NavContainer = styled.div`
 	flex-grow: 0.2;
 	display: flex;
 	justify-content: space-between;
+	font-size: 0.5em;
+	padding-right: 20px;
 
 	@media (max-width: ${size.laptop}) {
 		display: none;
@@ -44,8 +46,8 @@ const Header = () => {
 		<NavWrapper>
 			<HomeRoute />
 			<NavContainer>
-				<AboutRoute />
 				<Search />
+				<AboutRoute />
 			</NavContainer>
 			<BurgerMenu toggleBurger={toggleBurger} open={open}/>
 		</NavWrapper>
