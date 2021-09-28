@@ -29,8 +29,8 @@ const Input = styled.input`
 		margin: 0 auto;
 		text-align: center;
 		padding: 10px 5px 10px 30px;
-		max-width: 90%;
-		min-width: 90%;
+		max-width: 83%;
+		min-width: 83%;
 	}
 `
 
@@ -41,7 +41,7 @@ const SearchIcon = styled(BsSearch)`
 	@media (max-width: ${size.laptop}) {
 		position: absolute;
 		margin: 0 auto;
-		padding-top: 6%;
+		padding-top: 18px;
 		padding-left: 6%;
 	}
 `
