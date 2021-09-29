@@ -18,7 +18,6 @@ class TweetPage extends Component {
         this.setState({ isLoading: true })
 
         await api.getTweetId(this.props.match.params.tweet_id).then(tweets => {
-        	console.log(tweets.data.data);
             this.setState({
                 tweet: tweets.data.data,
                 isLoading: false,
@@ -38,14 +37,17 @@ class TweetPage extends Component {
         })
     }
 
-    componentDidUpdate = (prevProps) => {
+    componentDidUpdate = async (prevProps) => {
     	if(this.props.match.params.tweet_id !== prevProps.match.params.tweet_id) {
     		const result = this.state.tweets.filter(obj => {
     			return obj.tweet_id == this.props.match.params.tweet_id;
     		})
-    		this.setState({
-    			tweet: result
-    		})
+    		await api.getCommentId(this.props.match.params.tweet_id).then(comments => {
+	        	this.setState({
+	        		tweet: result,
+	        		comments: comments.data.data
+	        	})
+        	})
     		console.log('changed!!!');
     	};
     };

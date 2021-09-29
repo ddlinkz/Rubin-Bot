@@ -34,7 +34,7 @@ const CommentContainer = ({comments, tweet_id}) => {
 	}, [comments]);
 
 	const handleChange = (event) => {
-		setComment({ ...comment, [event.target.name]: event.target.value });
+		setComment({...comment, [event.target.name]: event.target.value });
 	};
 
 	const addComment = async (event) => {

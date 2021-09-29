@@ -11,6 +11,7 @@ const HomeContainer = styled.div`
 
 const NavLink = styled(Link)`
 	text-decoration: none;
+	color: black;
 
 	&:visited {
 		color: black;

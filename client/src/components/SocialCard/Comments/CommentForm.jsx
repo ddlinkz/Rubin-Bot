@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { Button } from '../../../components';
+
 import { size } from '../../../style';
 
 const FormWrapper = styled.div`
@@ -24,26 +26,10 @@ const TextInput = styled.textarea`
 	font-family: inherit;
 `
 
-const SubmitButton = styled.input`
-	background-color: #4CAF50;
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	position: relative;
-	display: block;
-	margin: 0 auto;
-	transition: transform .2s;
-
-	&:hover {
-		transform: scale(1.1);
-	}
-`
-
 const CommentForm = ({content, author, handleChange, addComment}) => {
-
 	return (
 		<FormWrapper>
-			<form onSubmit={addComment} >
+			<form onSubmit={addComment}>
 				<label> Add comment here: </label>
 					<br />
 					<TextInput value={content} type="text" name="content" onChange={handleChange} />
@@ -52,7 +38,9 @@ const CommentForm = ({content, author, handleChange, addComment}) => {
 					<br />
 					<input value={author} type="text" name="author" onChange={handleChange} />
 				<br />
-				<SubmitButton type="submit" value="Submit" />
+				<Button type="submit" value="Submit">
+					Submit
+				</Button>
 			</form>
 		</FormWrapper>
 	)
