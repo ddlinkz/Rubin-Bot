@@ -29,8 +29,8 @@ const Input = styled.input`
 		margin: 0 auto;
 		text-align: center;
 		padding: 10px 5px 10px 30px;
-		max-width: 83%;
-		min-width: 83%;
+		max-width: 82%;
+		min-width: 82%;
 	}
 `
 

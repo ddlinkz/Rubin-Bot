@@ -12,6 +12,10 @@ const AppContainer = styled.div`
 
 class App extends React.Component {
     render () {
+
+        document.body.style.margin = "0";
+        document.body.style.padding = "0";
+        
         return (
             <AppContainer>
                 <ApiWrapper />
