@@ -8,7 +8,7 @@ class TweetPage extends Component {
 		super(props);
 		this.state = {
 			tweet: [],
-			tweets: [],
+			tweets: props.tweets,
 			comments: [],
 			isLoading: false,
 		};
@@ -17,17 +17,11 @@ class TweetPage extends Component {
     componentDidMount = async () => {
         this.setState({ isLoading: true })
 
-        await api.getTweetId(this.props.match.params.tweet_id).then(tweets => {
+        await api.getTweetId(this.props.match.params.tweet_id).then(tweet => {
             this.setState({
-                tweet: tweets.data.data,
-                isLoading: false,
+                tweet: tweet.data.data,
+                isLoading: false
             })
-        })
-
-        await api.getAllTweets().then(tweets => {
-            this.setState({
-                tweets: tweets.data.data,
-        	})
         })
 
         await api.getCommentId(this.props.match.params.tweet_id).then(comments => {
@@ -56,11 +50,9 @@ class TweetPage extends Component {
 		const { tweets, tweet, comments } = this.state;
 		const tweet_id = this.props.match.params.tweet_id;
 
-        const extractTweet = Object.assign({}, tweet[0]);
-
 		return (
 			<div>
-				<Showcase tweet={extractTweet}
+				<Showcase tweet={tweet}
 						  comments={comments}
 						  tweet_id={tweet_id} />
 				<MoreTweets />

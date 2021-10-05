@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm run test",
     "dev": "nodemon --watch . server/server.js -e html,js,ejs",
+    "mock": "nodemon --watch . server/mock/server.js --id tweet_id -e html,js,ejs",
     "start": "node server/server.js",
     "textract": "node modifydb.js fillone",
     "textract-many": "node modifydb.js fillmany",

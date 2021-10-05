@@ -25,8 +25,6 @@ class ApiWrapper extends React.Component {
             const rand = getRandomInt(tweets.data.data.length);
             const copy = Object.assign({}, tweets.data.data[rand])
 
-            console.log(tweets.data.data);
-
             this.setState({
                 isLoading: false,
                 tweets: tweets.data.data,
@@ -45,7 +43,11 @@ class ApiWrapper extends React.Component {
                 	   component={() => <FrontPage isLoading={isLoading}
                 	   							   tweets={tweets}
                 	   							   randomTweet={randomTweet}/> }/>
-                <Route path="/tweets/:tweet_id" component={TweetPage} />
+                <Route path="/tweets/:tweet_id" 
+                	   component={(matchProps) => <TweetPage {...matchProps}
+                	   							   {...this.props}
+                	   							   isLoading={isLoading}
+                								   tweets={tweets}/> }/>
                 <Route path="/search" component={SearchPage} />
                 <Route path="/about" component={AboutPage} />
                 <Footer />

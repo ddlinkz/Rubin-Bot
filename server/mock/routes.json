@@ -1,0 +1,4 @@
+{
+	"/api/tweets/:tweet_id": "/data/:tweet_id",
+	"/api/tweets": "/data"
+}

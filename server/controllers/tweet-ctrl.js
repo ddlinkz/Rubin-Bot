@@ -15,11 +15,11 @@ const getTweets = async (req, res) => {
 };
 
 const getTweetId = async (req, res) => {
-    await Tweet.find(req.params, (err, tweets) => {
+    await Tweet.findOne({tweet_id: req.params.tweet_id}, (err, tweets) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
-        if (!tweets.length) {
+        if (tweets.length === 0) {
             return res
                 .status(404)
                 .json({ success: false, error: `Tweet not found` })
