@@ -20,14 +20,16 @@ class ApiWrapper extends React.Component {
 	componentDidMount = async () => {
 		this.setState({ isLoading: true });
 
+        console.log(this.props);
+
         await api.getAllTweets().then(tweets => {
 
             const rand = getRandomInt(tweets.data.data.length);
-            const copy = Object.assign({}, tweets.data.data[rand])
+            const copy = Object.assign({}, tweets.data.data[rand]);
 
             this.setState({
                 isLoading: false,
-                tweets: tweets.data.data,
+                tweets: tweets.data.data.reverse(),
                 randomTweet: copy
             })
         })

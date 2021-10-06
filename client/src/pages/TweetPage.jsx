@@ -6,45 +6,62 @@ import { TweetList, Showcase, MoreTweets } from '../components';
 class TweetPage extends Component {
 	constructor(props){
 		super(props);
+		this._isMounted = false; // Fix component mounting errors
 		this.state = {
 			tweet: [],
-			tweets: props.tweets,
+			tweets: [],
 			comments: [],
-			isLoading: false,
 		};
 	}
 
     componentDidMount = async () => {
-        this.setState({ isLoading: true })
+    	this._isMounted = true;
+        this.setState({tweets: this.props.tweets })
 
-        await api.getTweetId(this.props.match.params.tweet_id).then(tweet => {
-            this.setState({
-                tweet: tweet.data.data,
-                isLoading: false
-            })
-        })
+        this._isMounted && this.getTweetId(this.props.match.params.tweet_id);
+        this._isMounted && this.getCommentId(this.props.match.params.tweet_id);
+    }
 
-        await api.getCommentId(this.props.match.params.tweet_id).then(comments => {
-        	this.setState({
-        		comments: comments.data.data
-        	})
-        })
+    componentWillUnmount() {
+    	this._isMounted = false;
     }
 
     componentDidUpdate = async (prevProps) => {
+    	// Compare to check if route params have changed
     	if(this.props.match.params.tweet_id !== prevProps.match.params.tweet_id) {
     		const result = this.state.tweets.filter(obj => {
     			return obj.tweet_id == this.props.match.params.tweet_id;
     		})
+
+    		this.setState({
+    			tweet: result[0]
+    		})
+
     		await api.getCommentId(this.props.match.params.tweet_id).then(comments => {
-	        	this.setState({
-	        		tweet: result,
-	        		comments: comments.data.data
-	        	})
-        	})
-    		console.log('changed!!!');
+    			this.setState({
+    				comments: comments.data.data
+    			})
+    		}).catch((error) => {
+    			this.setState({ // Bad practice?
+    				comments: []
+    			})
+    		})
     	};
     };
+
+    async getTweetId(tweet_id) {
+    	let tweet = await api.getTweetId(tweet_id);
+    	this._isMounted && this.setState({
+    		tweet: tweet.data.data
+    	})
+    }
+
+    async getCommentId(tweet_id) {
+    	let comments = await api.getCommentId(tweet_id);
+    	this._isMounted && this.setState({
+    		comments: comments.data.data
+    	})
+    }
 
 	render() {
 		const { tweets, tweet, comments } = this.state;
@@ -56,11 +73,11 @@ class TweetPage extends Component {
 						  comments={comments}
 						  tweet_id={tweet_id} />
 				<MoreTweets />
-				<TweetList tweets={tweets.reverse()}/>
+				<TweetList tweets={tweets}/>
 			</div>
 		)
 
 	}
-
 }
+
 export default TweetPage;

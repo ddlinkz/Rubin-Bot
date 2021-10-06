@@ -1,4 +1,5 @@
 {
 	"/api/tweets/:tweet_id": "/data/:tweet_id",
-	"/api/tweets": "/data"
+	"/api/tweets": "/data",
+	"/api/comments/:tweet_id": "/comments/?tweet_id=:tweet_id"
 }

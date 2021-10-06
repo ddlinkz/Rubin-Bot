@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { TweetList, Showcase, Loading, MoreTweets } from '../components';
 
 import styled, { keyframes } from 'styled-components';
+
+import api from '../api';
 
 const PageContainer = styled.div`
 	height: 90%;
@@ -19,6 +21,22 @@ const LoadInWrapper = styled.div`
 `
 
 const FrontPage = ({isLoading, tweets, randomTweet}) => {
+	const [comments, setComments] = useState([]);
+
+	useEffect(() => {
+		async function fetchComments() {
+			if(randomTweet.tweet_id !== undefined){
+				let response = await api.getCommentId(randomTweet.tweet_id);
+				response = await response.data.data;
+				setComments(response);
+			}
+		}
+
+		if(!isLoading){
+			fetchComments();
+		}
+	});
+
 	return (
 		<PageContainer>
 			{isLoading ?
@@ -28,9 +46,10 @@ const FrontPage = ({isLoading, tweets, randomTweet}) => {
 			:
 				<LoadInWrapper>
 					<Showcase tweet={randomTweet}
-							  tweet_id={randomTweet.tweet_id} />
+							  tweet_id={randomTweet.tweet_id}
+							  comments={comments} />
 					<MoreTweets />
-					<TweetList tweets={tweets.reverse()}/>
+					<TweetList tweets={tweets}/>
 				</LoadInWrapper>
 			}
 		</PageContainer>
