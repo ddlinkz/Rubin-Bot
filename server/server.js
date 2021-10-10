@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 // Serve static files from React
 app.use(express.static(path.join(__dirname, '../client/build')));
 
+// Connect to MongoDB using Mongoose
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 app.get('/', (req, res) => {

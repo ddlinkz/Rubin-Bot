@@ -17,10 +17,21 @@ const Wrapper = styled.div`
 `
 
 const TweetCard = ({tweet, standard}) => {
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
 	return (
 		<Wrapper className={standard ? 'standard' : ''}>
-			<Link to ={`/tweets/${tweet.tweet_id}`}>
-				<img style={imgStyle} src={tweet.img} alt={tweet.secure_img}/>
+			<Link to={`/tweets/${tweet.tweet_id}`}>
+				<img style={imgStyle} 
+					 src={tweet.img} 
+					 alt={tweet.secure_img}
+					 onClick={() => scrollToTop()}/>
 			</Link>
 		</Wrapper>
 	);

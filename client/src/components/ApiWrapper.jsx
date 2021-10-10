@@ -20,8 +20,6 @@ class ApiWrapper extends React.Component {
 	componentDidMount = async () => {
 		this.setState({ isLoading: true });
 
-        console.log(this.props);
-
         await api.getAllTweets().then(tweets => {
 
             const rand = getRandomInt(tweets.data.data.length);

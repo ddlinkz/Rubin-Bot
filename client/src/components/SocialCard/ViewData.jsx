@@ -3,17 +3,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ViewDataContainer = styled.div`
-	width: 200px;
+	width: 100%;
 	height: 80px;
 	float: left;
 	font-family: inherit;
 	border: 1px black solid;
 	border-radius: 25px;
 	font-style: italic;
-
-	@media (max-width: 900px) {
-		width: 170px;
-	}
+	text-align: center;
 
 	@media (max-width: 450px) {
 		flex-grow: 1;
@@ -21,11 +18,13 @@ const ViewDataContainer = styled.div`
 	}
 `
 
-const ViewData = ({children}) => {
+const ViewData = ({children, data}) => {
 
 	return (
 		<ViewDataContainer>
 			{children}
+			<br/>
+			{data}
 		</ViewDataContainer>
 	)
 }

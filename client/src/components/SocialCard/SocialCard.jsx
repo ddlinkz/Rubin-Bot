@@ -10,7 +10,7 @@ const SocialWrapper = styled.div`
 	flex-wrap: wrap;
 	justify-content: space-around;
 	width: 49%;
-	height: 100%;
+	height: 90%;
 	text-align: center;
 
 	@media (max-width: ${size.tablet}) {
@@ -27,12 +27,6 @@ const SocialCard = ({comments, tweet_id}) => {
 		<SocialWrapper>
 			<CommentContainer comments={comments}
 							tweet_id={tweet_id} />
-			<ViewData>
-				View Count
-			</ViewData>
-			<ViewData>
-				Subscriber Count
-			</ViewData>
 		</SocialWrapper>
 	)
 }

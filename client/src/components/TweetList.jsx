@@ -34,7 +34,7 @@ class TweetList extends Component {
                 {this.props.tweets.slice(0, this.state.size).map(tweet => 
                     <TweetCard tweet={tweet}
                                standard={true}
-                               key={tweet.tweet_id} />
+                               key={tweet.tweet_id}/>
                 )}
                 <Button onClick={() => this.setState({size: this.state.size + 9})} >
                     Load More
