@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import ReactGA from 'react-ga';
 
-const trackingId = process.env.G_ANALYTICS_TRACKING_ID; // Replace with your Google Analytics tracking ID
+const trackingId = process.env.REACT_APP_GA_TRACKING_ID;
 ReactGA.initialize(trackingId);
 
 const AppContainer = styled.div`

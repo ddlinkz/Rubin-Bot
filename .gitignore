@@ -1,5 +1,6 @@
 #exclude .env file
 .env
+/.env
 /node_modules
 /client/build
 /client/node_modules

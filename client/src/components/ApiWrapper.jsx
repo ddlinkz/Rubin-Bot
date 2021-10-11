@@ -8,13 +8,12 @@ import { Header, Footer } from '../components'
 import { createBrowserHistory } from 'history';
 import ReactGA from 'react-ga';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 
 const history = createBrowserHistory();
-
 history.listen(location => {
-	ReactGA.set({ page: location.pathname }); // Update the user's current page
-	ReactGA.pageview(location.pathname); // Record a pageview for the given page
+    ReactGA.set({ page: location.pathname })
+    ReactGA.pageview(location.pathname)
 });
 
 class ApiWrapper extends React.Component {
@@ -41,6 +40,8 @@ class ApiWrapper extends React.Component {
                 randomTweet: copy
             })
         })
+
+        ReactGA.pageview(window.location.pathname);
     }
 
 	render() {
