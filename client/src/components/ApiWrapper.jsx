@@ -5,7 +5,17 @@ import api from '../api';
 import { FrontPage, TweetPage, SearchPage, AboutPage } from '../pages'
 import { Header, Footer } from '../components'
 
+import { createBrowserHistory } from 'history';
+import ReactGA from 'react-ga';
+
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+const history = createBrowserHistory();
+
+history.listen(location => {
+	ReactGA.set({ page: location.pathname }); // Update the user's current page
+	ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 class ApiWrapper extends React.Component {
 	constructor(props){
@@ -37,7 +47,7 @@ class ApiWrapper extends React.Component {
 		const { isLoading, tweets, randomTweet} = this.state;
 
 		return (
-            <Router>
+            <Router history={history}>
                 <Header />
                 <Route path="/" exact 
                 	   component={() => <FrontPage isLoading={isLoading}
