@@ -10,6 +10,7 @@ const ShowcaseWrapper = styled.div`
 
 	@media (max-width: ${size.tablet}) {
 		height: 100%;
+		padding: 20px;
 	}
 `
 

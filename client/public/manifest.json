@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Rubin Bot App",
+  "name": "Rick Rubin Tweet Archive and bot ran on Heroku",
   "icons": [
     {
       "src": "favicon.ico",

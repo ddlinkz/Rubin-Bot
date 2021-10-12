@@ -12,8 +12,15 @@ import { Router, Route } from 'react-router-dom';
 
 const history = createBrowserHistory();
 history.listen(location => {
-    ReactGA.set({ page: location.pathname })
-    ReactGA.pageview(location.pathname)
+	console.log(location.pathname);
+    ReactGA.set({ page: location.pathname });
+    ReactGA.pageview(location.pathname);
+
+    if(window.location.pathname !== "/"){
+        const body = {};
+        body.route = window.location.pathname;
+        api.putPageView(body);
+    } // Handle PageView (FrontPage handles it itself)
 });
 
 class ApiWrapper extends React.Component {
@@ -27,7 +34,7 @@ class ApiWrapper extends React.Component {
 	}
 
 	componentDidMount = async () => {
-		this.setState({ isLoading: true });
+		// this.setState({ isLoading: true });
 
         await api.getAllTweets().then(tweets => {
 
@@ -41,6 +48,13 @@ class ApiWrapper extends React.Component {
             })
         })
 
+        if(window.location.pathname !== "/"){
+            const body = {};
+            body.route = window.location.pathname;
+            api.putPageView(body);
+        } // Handle PageView (FrontPage handles it itself)
+
+        // Google Analytics
         ReactGA.pageview(window.location.pathname);
     }
 

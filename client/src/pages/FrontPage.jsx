@@ -32,8 +32,20 @@ const FrontPage = ({isLoading, tweets, randomTweet}) => {
 			}
 		}
 
+		async function putPageView() {
+            if(!isLoading && randomTweet.tweet_id !== undefined){
+            	const body = {};
+            	const tweet_body = {};
+            	body.route = window.location.pathname;
+                tweet_body.route = "/tweets/" + randomTweet.tweet_id;
+                api.putPageView(tweet_body);
+	            api.putPageView(body);
+            }
+		} // Necessary to update Tweet as well as FrontPage ("/")
+
 		if(!isLoading){
 			fetchComments();
+			putPageView();
 		}
 	});
 
