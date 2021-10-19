@@ -12,7 +12,6 @@ import { Router, Route } from 'react-router-dom';
 
 const history = createBrowserHistory();
 history.listen(location => {
-	console.log(location.pathname);
     ReactGA.set({ page: location.pathname });
     ReactGA.pageview(location.pathname);
 
