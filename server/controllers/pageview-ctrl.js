@@ -20,7 +20,8 @@ const putPageView = async (req, res) => {
 	const query = { route: req.body.route };
 	const updateval = { $inc: {view_count: 1 } };
 
-    await PageView.updateOne(query, updateval, { upsert: true }).exec();
+    await PageView.updateOne(query, updateval, { upsert: true });
+    return res.status(200).json({ success: true });
 };
 
 module.exports = {
