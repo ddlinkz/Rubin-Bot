@@ -1,9 +1,10 @@
 import React from 'react';
 
 import api from '../api';
-
 import { FrontPage, TweetPage, SearchPage, AboutPage } from '../pages'
 import { Header, Footer } from '../components'
+
+import seedrandom from 'seedrandom';
 
 import { createBrowserHistory } from 'history';
 import ReactGA from 'react-ga';
@@ -37,8 +38,10 @@ class ApiWrapper extends React.Component {
 
         await api.getAllTweets().then(tweets => {
 
-            const rand = getRandomInt(tweets.data.data.length);
-            const copy = Object.assign({}, tweets.data.data[rand]);
+            const rand = seedrandom(new Date().toLocaleDateString());
+            const rand_index = Math.floor(rand() * tweets.data.data.length);
+
+            const copy = Object.assign({}, tweets.data.data[rand_index]);
 
             this.setState({
                 isLoading: false,
@@ -79,10 +82,6 @@ class ApiWrapper extends React.Component {
 		)
 	}
 
-}
-
-function getRandomInt(max){
-	return Math.floor(Math.random() * max);
 }
 
 export default ApiWrapper

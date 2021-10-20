@@ -71,6 +71,7 @@ const FrontPage = ({isLoading, tweets, randomTweet}) => {
 				</div>
 			:
 				<LoadInWrapper>
+					<i> Random Tweet of the day: </i>
 					<Showcase tweet={randomTweet}
 							  tweet_id={randomTweet.tweet_id}
 							  comments={comments}

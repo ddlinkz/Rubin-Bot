@@ -32,6 +32,7 @@ class TweetPage extends Component {
     	// Compare to check if route params have changed
     	if(this.props.match.params.tweet_id !== prevProps.match.params.tweet_id) {
     		const result = this.state.tweets.filter(obj => {
+    			// eslint-disable-next-line
     			return obj.tweet_id == this.props.match.params.tweet_id;
     		})
 
