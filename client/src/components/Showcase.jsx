@@ -34,7 +34,7 @@ const DataContainer = styled.div`
 	width: 100%;
 `
 
-const Showcase = ({tweet, comments, tweet_id}) => {
+const Showcase = ({tweet, comments, tweet_id, view_count}) => {
 	
 	return (
 		<ShowcaseWrapper>
@@ -45,7 +45,7 @@ const Showcase = ({tweet, comments, tweet_id}) => {
 			<SocialCard comments={comments}
 						tweet_id={tweet_id} />
 			<DataContainer>
-				<ViewData>
+				<ViewData data={view_count}>
 					View Count
 				</ViewData>
 				<ViewData data={tweet.user_count}>

@@ -22,6 +22,7 @@ const LoadInWrapper = styled.div`
 
 const FrontPage = ({isLoading, tweets, randomTweet}) => {
 	const [comments, setComments] = useState([]);
+	const [viewCount, setViewCount] = useState(0);
 
 	useEffect(() => {
 		async function fetchComments() {
@@ -29,7 +30,7 @@ const FrontPage = ({isLoading, tweets, randomTweet}) => {
 				let response = await api.getCommentId(randomTweet.tweet_id);
 				response = await response.data.data;
 				setComments(response);
-			}
+			}	
 		}
 
 		async function putPageView() {
@@ -43,11 +44,25 @@ const FrontPage = ({isLoading, tweets, randomTweet}) => {
             }
 		} // Necessary to update Tweet as well as FrontPage ("/")
 
+		async function fetchPageView() {
+			if(!isLoading && randomTweet.tweet_id !== undefined){
+				let response = await api.getPageView(randomTweet.tweet_id);
+				console.log(response.data.data);
+				if(response.data.data.hasOwnProperty('view_count')){
+					const view_count = response.data.data.view_count;
+					if(view_count !== null){
+						setViewCount(response.data.data.view_count);
+					}
+				}
+			}
+		}
+
 		if(!isLoading){
 			fetchComments();
 			putPageView();
+			fetchPageView();
 		}
-	});
+	}, [isLoading, randomTweet]);
 
 	return (
 		<PageContainer>
@@ -59,7 +74,8 @@ const FrontPage = ({isLoading, tweets, randomTweet}) => {
 				<LoadInWrapper>
 					<Showcase tweet={randomTweet}
 							  tweet_id={randomTweet.tweet_id}
-							  comments={comments} />
+							  comments={comments}
+							  view_count={viewCount} />
 					<MoreTweets />
 					<TweetList tweets={tweets}/>
 				</LoadInWrapper>

@@ -10,7 +10,7 @@ router.get('/tweets', TweetCtrl.getTweets);
 router.get('/tweets/:tweet_id', TweetCtrl.getTweetId);
 router.get('/comments', CommentCtrl.getComments);
 router.get('/comments/:tweet_id', CommentCtrl.getCommentId);
-router.get('/pageview/', PageViewCtrl.getPageView);
+router.get('/pageview/:route', PageViewCtrl.getPageView);
 
 router.post('/comments/', CommentCtrl.postComment);
 
