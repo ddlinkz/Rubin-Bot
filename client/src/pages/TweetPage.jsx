@@ -11,6 +11,7 @@ class TweetPage extends Component {
 			tweet: [],
 			tweets: [],
 			comments: [],
+			view_count: 0
 		};
 	}
 
@@ -20,6 +21,7 @@ class TweetPage extends Component {
 
         this._isMounted && this.getTweetId(this.props.match.params.tweet_id);
         this._isMounted && this.getCommentId(this.props.match.params.tweet_id);
+        this._isMounted && this.getPageView(this.props.match.params.tweet_id);
     }
 
     componentWillUnmount() {
@@ -37,13 +39,23 @@ class TweetPage extends Component {
     			tweet: result[0]
     		})
 
-    		await api.getCommentId(this.props.match.params.tweet_id).then(comments => {
+    		await api.getCommentId(this.props.match.params.tweet_id).then(res => {
     			this.setState({
-    				comments: comments.data.data
+    				comments: res.data.data
     			})
     		}).catch((error) => {
     			this.setState({ // Bad practice?
     				comments: []
+    			})
+    		})
+
+    		await api.getPageView(this.props.match.params.tweet_id).then(res => {
+    			this.setState({
+    				view_count: res.data.data.view_count
+    			})
+    		}).catch((error) => {
+    			this.setState({ // Bad practice?
+    				view_count: 0
     			})
     		})
     	};
@@ -54,24 +66,34 @@ class TweetPage extends Component {
     	this._isMounted && this.setState({
     		tweet: tweet.data.data
     	})
-    }
+    };
 
     async getCommentId(tweet_id) {
     	let comments = await api.getCommentId(tweet_id);
     	this._isMounted && this.setState({
     		comments: comments.data.data
     	})
-    }
+    };
+
+    async getPageView(tweet_id) {
+    	let pageview = await api.getPageView(tweet_id);
+    	if(pageview.data.data !== null){
+	    	this._isMounted && this.setState({
+	    		view_count: pageview.data.data.view_count
+	    	})
+	    }
+    };
 
 	render() {
-		const { tweets, tweet, comments } = this.state;
+		const { tweets, tweet, comments, view_count } = this.state;
 		const tweet_id = this.props.match.params.tweet_id;
 
 		return (
 			<div>
 				<Showcase tweet={tweet}
 						  comments={comments}
-						  tweet_id={tweet_id} />
+						  tweet_id={tweet_id}
+						  view_count={view_count} />
 				<MoreTweets />
 				<TweetList tweets={tweets}/>
 			</div>

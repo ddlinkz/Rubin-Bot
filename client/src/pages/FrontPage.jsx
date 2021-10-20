@@ -47,8 +47,7 @@ const FrontPage = ({isLoading, tweets, randomTweet}) => {
 		async function fetchPageView() {
 			if(!isLoading && randomTweet.tweet_id !== undefined){
 				let response = await api.getPageView(randomTweet.tweet_id);
-				console.log(response.data.data);
-				if(response.data.data.hasOwnProperty('view_count')){
+				if(response.data.data !== null){
 					const view_count = response.data.data.view_count;
 					if(view_count !== null){
 						setViewCount(response.data.data.view_count);
