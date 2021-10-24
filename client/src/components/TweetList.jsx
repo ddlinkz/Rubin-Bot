@@ -16,6 +16,8 @@ const GridContainer = styled.div`
     @media (min-width: ${size.tablet}) {
         padding-left: 40px;
         padding-right: 40px;
+        width: 70%;
+        margin: auto;
     }
 `
 

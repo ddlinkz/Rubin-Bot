@@ -24,6 +24,8 @@ import MoreTweets from './MoreTweets';
 
 import Button from './Button';
 
+import Marquee from './Marquee';
+
 export { 
 	TweetList,
 	HomeRoute,
@@ -43,5 +45,6 @@ export {
 	BurgerIcon,
 	MoreTweets,
 	ApiWrapper,
-	Button
+	Button,
+	Marquee
 };

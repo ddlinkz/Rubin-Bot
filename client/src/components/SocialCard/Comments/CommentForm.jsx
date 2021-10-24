@@ -8,12 +8,16 @@ import { size } from '../../../style';
 
 const FormWrapper = styled.div`
 	position: relative;
+	display: inline-block;
 	font-family: inherit;
 	font-style: italic;
 	font-weight: bolder;
+	margin: 0 auto;
+	bottom: 0;
 	width: 100%;
-	height: 25%;
-	margin-top: 20px;
+	height: 250px;
+	border: 1px black solid;
+	text-align: center;
 
 	@media (max-width: ${size.tablet}){
 		margin-top: 5px;
@@ -22,6 +26,7 @@ const FormWrapper = styled.div`
 
 const TextInput = styled.textarea`
 	width: 70%;
+	margin: 0 auto;
 	height: 100px;
 	font-family: inherit;
 `

@@ -9,8 +9,8 @@ const SocialWrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	width: 49%;
-	height: 90%;
+	width: 39%;
+	height: 80%;
 	text-align: center;
 
 	@media (max-width: ${size.tablet}) {

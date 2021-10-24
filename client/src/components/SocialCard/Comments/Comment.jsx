@@ -8,7 +8,7 @@ const CommentWrapper = styled.div`
 	line-height: 1.3;
 	font-style: italic;
 	text-align: left;
-	font-size: 24px;
+	font-size: 20px;
 `
 
 const Comment = ({comment}) => {

@@ -5,10 +5,19 @@ import styled from 'styled-components'
 
 const imgStyle = {
 	height: "auto",
-	width: "100%"
+	width: "100%",
+	maxWidth: "600px",
+	maxHeight: "600px",
+	display: "block",
+	margin: "auto"
 }
 
 const Wrapper = styled.div`
+	display: inline-block;
+	width: 89%;
+	height: 100%;
+	vertical-align: top;
+
 	&.standard {
 		flex: 0 0 33.333333%;
 		margin: auto;
