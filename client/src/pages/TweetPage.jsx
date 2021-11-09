@@ -94,7 +94,8 @@ class TweetPage extends Component {
 				<Showcase tweet={tweet}
 						  comments={comments}
 						  tweet_id={tweet_id}
-						  view_count={view_count} />
+						  view_count={view_count}
+						  front_page={false} />
 				<MoreTweets />
 				<TweetList tweets={tweets}/>
 			</div>

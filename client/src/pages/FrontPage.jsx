@@ -74,7 +74,8 @@ const FrontPage = ({isLoading, tweets, randomTweet}) => {
 					<Showcase tweet={randomTweet}
 							  tweet_id={randomTweet.tweet_id}
 							  comments={comments}
-							  view_count={viewCount} />
+							  view_count={viewCount}
+							  front_page={true} />
 					<MoreTweets />
 					<TweetList tweets={tweets}/>
 				</LoadInWrapper>

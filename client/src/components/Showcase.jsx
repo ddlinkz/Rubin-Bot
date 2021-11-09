@@ -62,7 +62,7 @@ const CommentWrapper = styled.div`
 	}
 `
 
-const Showcase = ({tweet, comments, tweet_id, view_count}) => {
+const Showcase = ({tweet, comments, tweet_id, view_count, front_page}) => {
 	const [comment, setComment] = useState({content: "", author: ""});
 	const [localComments, setLocalComments] = useState(comments);
 
@@ -87,7 +87,7 @@ const Showcase = ({tweet, comments, tweet_id, view_count}) => {
 		<ShowcaseWrapper>
 			<ShowcaseContainer>
 				<TweetContainer>
-					<Marquee />
+					{front_page ? <Marquee /> : <></>}
 					<TweetCard tweet={tweet}
 							   standard={false} />
 				</TweetContainer>
