@@ -5,92 +5,79 @@ import styled, { keyframes } from 'styled-components';
 import { size } from '../style';
 
 const marqueeAnimation = keyframes`
-	0% { top: 140%; }
-	50% { top: -100%; }
-	100% {top: -100%; }
+	0% { right: 100%; }
+	50% { right: -40%; }
+	100% { right: -40%; }
+`
+
+const marqueeMobileAnimation = keyframes`
+	0% { right: 100%; }
+	50% { right: -100%; }
+	100% { right: -100%; }
 `
 
 const MarqueeOuterDiv = styled.div`
-	display: inline-block;
-	position: relative;
 	overflow: hidden;
-	height: 150%;
-	width: 4%;
-	top: -25%;
-	font-size: 20px;
-	border-bottom: 2px solid black;
+	position: relative;
+	transform: rotate(270deg);
+	transform-origin: 0% 0%;
+	width: 90vh;
+	height: 8%;
+	bottom: -500px;
+	font-size: 3em;
+	border: 1px solid black;
+	border-left: 2px solid black;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
 
 	@media (max-width: ${size.tablet}) {
-		height: 570px;
-		font-size: 12px;
+		font-size: 2em;
+		transform: none;
+		bottom: 0;
+		transform-origin: 50% 50%;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+`
+
+const MarqueeContainer = styled.div`
+	display: inline-block;
+	height: 100%;
+	width: 10%;
+
+	@media (max-width: ${size.tablet}) {
+		height: 60px;
+		width: 100%;
 	}
 `
 
 const RandomBanner = styled.div`
-	transform: translate(-50%, -50%) rotate(270deg);
 	white-space: nowrap;
 	position: absolute;
-	margin-left: 10px;
-	margin-bottom: 50px;
 	top: inherit;
 	left: inherit;
-`
-
-const RBOne = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear infinite;
-`
-
-const RBTwo = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear 2s infinite;
-`
-
-const RBThree = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear 4s infinite;
-`
-
-const RBFour = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear 6s infinite;
-`
-
-const RBFive = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear 8s infinite;
-`
-
-const RBSix = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear 10s infinite;
-`
-
-const RBSeven = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear 12s infinite;
-`
-
-const RBEight = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear 14s infinite;
-`
-
-const RBNine = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear 16s infinite;
-`
-
-const RBTen = styled(RandomBanner)`
-	animation: ${marqueeAnimation} 20s linear 18s infinite;
+	font-style: italic;
+	animation: ${marqueeAnimation} 15s linear ${props => props.timeDelay || "0s"} infinite;
+	
+	@media (max-width: ${size.tablet}) {
+		animation: ${marqueeMobileAnimation} 15s linear ${props => props.timeDelay || "0s"} infinite;
+	}
 `
 
 const Marquee = () => {
 	
 	return (
-		<MarqueeOuterDiv>
-			<RBOne> RANDOM TWEET OF THE DAY</RBOne>
-			<RBTwo> RANDOM TWEET OF THE DAY</RBTwo>
-			<RBThree> RANDOM TWEET OF THE DAY</RBThree>
-			<RBFour> RANDOM TWEET OF THE DAY</RBFour>
-			<RBFive> RANDOM TWEET OF THE DAY</RBFive>
-			<RBSix> RANDOM TWEET OF THE DAY</RBSix>
-			<RBSeven> RANDOM TWEET OF THE DAY</RBSeven>
-			<RBEight> RANDOM TWEET OF THE DAY</RBEight>
-			<RBNine> RANDOM TWEET OF THE DAY</RBNine>
-			<RBTen> RANDOM TWEET OF THE DAY</RBTen>
-		</MarqueeOuterDiv>
+		<MarqueeContainer>
+			<MarqueeOuterDiv>
+				<RandomBanner > Random Tweet of the Day</RandomBanner>
+				<RandomBanner timeDelay="-5s"> Random Tweet of the Day</RandomBanner>
+				<RandomBanner timeDelay="-10s"> Random Tweet of the Day</RandomBanner>
+			</MarqueeOuterDiv>
+		</MarqueeContainer>
 	)
 }
 

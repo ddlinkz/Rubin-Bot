@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Comment } from '../../../components';
 
 const CommentsWrapper = styled.div`
-	padding: 15px;
+	padding: 3px;
 	width: 100%;
 	height: 100%;
 	text-align: left;

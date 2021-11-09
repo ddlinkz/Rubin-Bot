@@ -3,20 +3,26 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components'
 
+import { size } from '../style';
+
 const imgStyle = {
 	height: "auto",
 	width: "100%",
-	maxWidth: "600px",
-	maxHeight: "600px",
+	maxWidth: "500px",
+	maxHeight: "500px",
 	display: "block",
 	margin: "auto"
 }
 
 const Wrapper = styled.div`
 	display: inline-block;
-	width: 89%;
+	width: 90%;
 	height: 100%;
 	vertical-align: top;
+
+	@media (max-width: ${size.tablet}) {
+		width: 100%;
+	}
 
 	&.standard {
 		flex: 0 0 33.333333%;
