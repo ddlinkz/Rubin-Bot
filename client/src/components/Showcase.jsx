@@ -9,7 +9,7 @@ import { size } from '../style';
 const ShowcaseWrapper = styled.div`
 	height: 90vh;
 	border-bottom: 2px grey solid;
-	width: 70%;
+	width: 80%;
 	margin: auto;
 
 	@media (max-width: ${size.tablet}) {
@@ -34,13 +34,12 @@ const DataContainer = styled.div`
 	justify-content: center;
 	align-content: space-around;
 	width: 100%;
-	padding-top: 20px;
+	padding-top: 50px;
 `
 
 const ShowcaseContainer = styled.div`
 	height: 600px;
 	width: 100%;
-	border: 1px black solid;
 
 	@media (max-width: ${size.tablet}) {
 		height: 100%;
@@ -101,10 +100,10 @@ const Showcase = ({tweet, comments, tweet_id, view_count, front_page}) => {
 				 handleChange={handleChange}
 				 addComment={addComment} />
 				<DataContainer>
-					<ViewData data={view_count}>
+					<ViewData data_val={view_count}>
 						View Count
 					</ViewData>
-					<ViewData data={tweet.user_count}>
+					<ViewData data_val={tweet.user_count}>
 						User Count
 					</ViewData>
 				</DataContainer>

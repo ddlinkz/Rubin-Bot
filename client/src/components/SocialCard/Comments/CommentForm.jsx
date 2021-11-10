@@ -16,8 +16,8 @@ const FormWrapper = styled.div`
 	bottom: 0;
 	width: 100%;
 	height: 250px;
-	border: 1px black solid;
 	text-align: center;
+	font-size: 22px;
 
 	@media (max-width: ${size.tablet}){
 		margin-top: 5px;
