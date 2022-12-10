@@ -23,7 +23,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "googleapis": "^88.2.0",
     "history": "^5.0.1",
     "mongodb": "^3.2.7",
